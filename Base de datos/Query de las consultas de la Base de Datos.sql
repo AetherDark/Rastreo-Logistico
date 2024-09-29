@@ -5,7 +5,7 @@ select p.ID as PedidoID, p.Descripcion as Descripcion, u.NombreUsuario, e.Nombre
 inner join Pedidos p on h.PedidoID = p.ID
 inner join Usuarios u on h.UsuarioID = u.ID
 inner join EstadosPedido e on h.EstadoID = e.ID
-where p.ID = 1 -- Se pone 1 de valor como predeterminado pero en realidad hay que poner parametro @PedidoID en el codigo --
+where p.ID = @PedidoID
 -- Se usa ese parametro de @PedidoID para sea el usuario que rellene ese campo y se haga la consulta al ID que este dio del pedido --
 -- Para que este pueda ver el estado de su pedido ya sea entregado o en transito --
 
