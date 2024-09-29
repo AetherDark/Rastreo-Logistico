@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Sesion.css"> <!-- Enlaza el archivo CSS para los estilos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> <!-- Librería para los iconos de redes sociales -->
+    <title>Diseño de Login</title>
+</head>
+<body>
+    <div class="container" id="container"> <!-- Contenedor principal para el formulario de inicio/registro -->
+
+        <!-- Formulario de registro -->
+        <div class="form-container sign-up-container">
+            <form action="#"> <!-- Acción del formulario (por ahora vacía) -->
+                <h1>Crea tu cuenta</h1> <!-- Título del formulario -->
+                <div class="social-container"> <!-- Contenedor para iconos de redes sociales -->
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <!-- Enlace con icono de Facebook -->
+                    <a href="#" class="social"><i class="fab fa-github"></i></a> <!-- Enlace con icono de GitHub -->
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <!-- Enlace con icono de Google -->
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> <!-- Enlace con icono de LinkedIn -->
+                </div>
+                <span>Usa tu email para el registro</span> <!-- Descripción -->
+                <input type="text" placeholder="Nombre"> <!-- Campo de nombre -->
+                <input type="email" placeholder="Email"> <!-- Campo de email -->
+                <input type="password" placeholder="Contraseña"> <!-- Campo de contraseña -->
+                <button>Regístrate</button> <!-- Botón de registro -->
+            </form>
+        </div>
+
+        <!-- Formulario de inicio de sesión -->
+        <div class="form-container sign-in-container">
+            <form action="#"> <!-- Acción del formulario -->
+                <h1>Inicia sesión</h1>
+                <div class="social-container"> <!-- Iconos de redes sociales para iniciar sesión -->
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <!-- Facebook -->
+                    <a href="#" class="social"><i class="fab fa-github"></i></a> <!-- GitHub -->
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <!-- Google -->
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> <!-- LinkedIn -->
+                </div>
+                <span>Usa la contraseña de tu email</span> <!-- Descripción --> 
+                <input type="email" placeholder="Email"> <!-- Campo de email -->
+                <input type="password" placeholder="Contraseña"> <!-- Campo de contraseña -->
+                <a href="#">¿Olvidaste tu contraseña?</a> <!-- Enlace para recuperar contraseña -->
+                <button>Entrar</button> <!-- Botón de inicio de sesión -->
+            </form>
+        </div>
+
+        <!-- Panel de alternancia entre el registro y el inicio de sesión -->
+        <div class="toggle-container">
+            <div class="toggle">
+                <!-- Panel izquierdo (para los usuarios que ya tienen cuenta) -->
+                <div class="toggle-panel toggle-left">
+                    <h1>Bienvenido de vuelta :D</h1>
+                    <p>Ingresa tu información para poder acceder a la plataforma</p>
+                    <button class="hidden" id="login">Entrar</button>
+                </div>
+                <!-- Panel derecho (para los nuevos usuarios) -->
+                <div class="toggle-panel toggle-right">
+                    <h1>Regístrate</h1>
+                    <p>Regístrate con tu información para poder acceder a la plataforma</p>
+                    <button class="hidden" id="register">Regístrate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Script para cambiar entre las vistas de inicio/registro -->
+</body>
+</html>

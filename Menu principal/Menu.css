@@ -1,0 +1,78 @@
+/* Reset general de márgenes y rellenos */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Establece un fondo con un gradiente y una imagen de fondo */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://i.pinimg.com/736x/e3/1f/85/e31f8535802cc53e83cf527f2d68ea57.jpg');
+    background-size: cover; /* La imagen cubre todo el fondo */
+    background-position: center; /* La imagen está centrada */
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    margin: 0;
+}
+
+/* Estilos para el contenedor de navegación (header) */
+nav {
+    display: flex; /* Uso de Flexbox para alinear elementos */
+    align-items: center;
+    justify-content: space-between; /* Distribución de espacio entre logo y enlaces */
+    padding-top: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-weight: bold; /* Negrita en el texto */
+}
+
+h1 {
+    color: white; /* Color blanco para el título/logo */
+    font-size: 45px; /* Tamaño del texto */
+}
+
+/* Estilos para los elementos de la lista del menú */
+ul li {
+    display: inline-block; /* Muestra los elementos en línea */
+    padding: 0px 20px; /* Espacio entre los elementos de la lista */
+}
+
+a {
+    color: white; /* Color blanco para los enlaces */
+    text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
+}
+
+/* Estilo para los enlaces al hacer hover */
+a:hover {
+    color:rgb(221, 0, 221) ; /* Color morado al pasar el mouse */
+}
+
+/* Estilos para la sección hero */
+.hero {
+    height: 500px; /* Altura de la sección */
+    display: flex; /* Flexbox para centrar contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    text-align: center; /* Alineación de texto centrada */
+}
+
+/* Estilos para el contenedor de los botones en la sección hero */
+.ContenedorBotones {
+    display: flex; /* Uso de Flexbox para alinear botones */
+    gap: 20px; /* Espacio entre los botones */
+    margin-top: 20px; /* Espacio superior respecto al título */
+}
+
+/* Estilos compartidos para los botones */
+.BotonEnviar, .BotonRastrear {
+    background-color: #512da8; /* Fondo púrpura */
+    color: #fff; /* Texto en color blanco */
+    font-size: 12px;
+    padding: 10px 45px; /* Relleno interno del botón */
+    border: 1px solid transparent; /* Sin borde visible */
+    border-radius: 8px; /* Bordes redondeados */
+    font-weight: 600; /* Texto en negrita */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    cursor: pointer; /* El cursor se convierte en "puntero" al pasar sobre el botón */
+}
