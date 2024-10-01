@@ -3,8 +3,15 @@ Se utilizara este apartado para escribir que modificaciones fueron las que se re
 # Semana 1.
 Se modifico la linea 6 del codigo el titulo poniendo el nombre del producto de software que es Trace&Track prueba modificar
 # Semana 2.
+dvfsdfanf safkñcmsmf adñfkv
+El marco se la come
+
+El pablo cumple años hoy
 # Semana 3.
 # Semana 4.
+asdfjfbna
+asfklnn
+
 # Semana 6.
 # Semana 7.
 # Semana 8.
