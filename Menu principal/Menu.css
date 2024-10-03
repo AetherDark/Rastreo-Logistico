@@ -6,9 +6,8 @@
 
 body {
     /* Establece un fondo con un gradiente y una imagen de fondo */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://i.pinimg.com/736x/e3/1f/85/e31f8535802cc53e83cf527f2d68ea57.jpg');
-    background-size: cover; /* La imagen cubre todo el fondo */
-    background-position: center; /* La imagen está centrada */
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #c9d6ff 0%, #e2e2e2 100%);
     width: 100%;
     height: 100vh; /* Ocupa toda la altura de la ventana */
     margin: 0;
@@ -26,7 +25,7 @@ nav {
 }
 
 h1 {
-    color: white; /* Color blanco para el título/logo */
+    color: purple; /* Color blanco para el título/logo */
     font-size: 45px; /* Tamaño del texto */
 }
 
@@ -37,7 +36,7 @@ ul li {
 }
 
 a {
-    color: white; /* Color blanco para los enlaces */
+    color: purple; /* Color blanco para los enlaces */
     text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
 }
 
@@ -75,4 +74,10 @@ a:hover {
     letter-spacing: 0.5px; /* Espaciado entre letras */
     text-transform: uppercase; /* Texto en mayúsculas */
     cursor: pointer; /* El cursor se convierte en "puntero" al pasar sobre el botón */
+}
+
+.logo {
+    width: 250px; /* Ajusta el tamaño del logo según tus necesidades */
+    height: auto;
+    border-radius: 50px;
 }
