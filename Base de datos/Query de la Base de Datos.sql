@@ -1,55 +1,62 @@
-create database RastreoLogistico
+create database RastreoLogistico;
 
-use RastreoLogistico
+use RastreoLogistico;
 
--- Gestion de usuarios y roles --
-create table Roles -- Para definir los roles y permisos --
+create table Roles -- Definir los roles y permisos
 (
-ID int identity(1,1) primary key,
-Nombre nvarchar(50) not null,
-Descripcion nvarchar(255)
+    ID int not null,
+    Nombre varchar(50) not null,
+    Descripcion varchar(255),
+    primary key (ID,Nombre) -- Clave primaria compuesta
+);
+
+-- Insercion de roles
+insert into Roles (ID, Nombre, Descripcion) values
+(1, 'Admin', 'Rol de Administrador'),
+(2, 'Repartidor', 'Rol de Repartidor'),
+(3, 'Usuario', 'Rol de Usuario');
+
+-- Para almacenar la información de cada usuario
+create table Usuarios
+(
+    ID int AUTO_INCREMENT PRIMARY KEY,
+    NombreUsuario varchar(100) not null unique,
+    Email varchar(100) not null unique,
+    PasswordHash varchar(255) not null,
+    RolID int, -- Solo se guarda el ID del rol
+    NombreRol varchar(50), --Solo se guarda el Nombre del Rol
+    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (RolID, NombreRol) REFERENCES Roles(ID, Nombre) -- Referencia solo a ID y Nombre
+);
+
+
+-- Gestión de pedidos y rastreo
+
+create table Pedidos -- Para registrar los pedidos
+(
+    ID int AUTO_INCREMENT primary key,
+    UsuarioID int,
+    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Descripcion TEXT,
+    EstadoActual varchar(50) not null, -- Estado Actual del pedido
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID)
 )
 
-create table Usuarios -- Para almacenar la informacion de cada usuario --
+CREATE TABLE EstadosPedido -- Para almacenar los diferentes estados
 (
-ID int identity(1,1) primary key,
-NombreUsuario nvarchar(100) not null unique,
-Email nvarchar(100) not null unique,
-PasswordHash nvarchar(255) not null,
-RolID int foreign key references Roles(ID),
-FechaCreacion datetime default getdate()
-)
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    NombreEstado VARCHAR(50) NOT NULL -- Ej: 'En tránsito', 'Entregado', 'Perdido', 'Cancelado'
+);
 
--- Si se necesita multiples roles para cada usuario, se usa esta tabla intermedia --
-create table RolesUsuarios -- Para asignar roles a usuarios --
+CREATE TABLE HistorialPedidos -- Para registrar los cambios de estado y quién los realizó
 (
-UsuarioID int foreign key references Usuarios(ID),
-RolID int foreign key references Roles(ID),
-primary key (UsuarioID, RolID)
-)
-
--- Gestion de pedidos y rastreo --
-create table Pedidos -- Para registrar los pedidos --
-(
-ID int identity(1,1) primary key,
-UsuarioID int foreign key references Usuarios(ID),
-FechaCreacion datetime default getdate(),
-Descripcion nvarchar(max),
-EstadoActual nvarchar(50) not null -- Estado Actual del pedido --
-)
-
-create table EstadosPedido -- Para almacenar los diferentes estados --
-(
-ID int identity(1,1) primary key,
-NombreEstado nvarchar(50) not null -- Ej: 'En transito', 'Entregado', 'Perdido', 'Cnacelado'
-)
-
-create table HistorialPedidos -- Para registrar los cambios de estado y quien los realizo --
-(
-ID int identity(1,1) primary key,
-PedidoID int foreign key references Pedidos(ID),
-UsuarioID int foreign key references Usuarios(ID), -- Quien modifico el estado --
-EstadoID int foreign key references EstadosPedido(ID),
-FechaCambio datetime default getdate(),
-Comentario nvarchar(max)
-)
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    PedidoID INT,
+    UsuarioID INT, -- Quien modificó el estado
+    EstadoID INT,
+    FechaCambio DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Comentario TEXT,
+    FOREIGN KEY (PedidoID) REFERENCES Pedidos(ID),
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID),
+    FOREIGN KEY (EstadoID) REFERENCES EstadosPedido(ID)
+);
