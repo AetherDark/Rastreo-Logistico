@@ -1,48 +1,52 @@
 /* Reset general de márgenes y rellenos */
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Elimina el margen predeterminado de todos los elementos */
+    padding: 0; /* Elimina el relleno predeterminado de todos los elementos */
 }
 
 body {
-    /* Establece un fondo con un gradiente y una imagen de fondo */
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #c9d6ff 0%, #e2e2e2 100%);
-    width: 100%;
+    background-color: #c9d6ff; /* Color de fondo sólido */
+    background: linear-gradient(to right, #c9d6ff 0%, #e2e2e2 100%); /* Degradado lineal de izquierda a derecha */
+    width: 100%; /* Ocupa el 100% del ancho de la ventana */
     height: 100vh; /* Ocupa toda la altura de la ventana */
-    margin: 0;
+    margin: 0; /* Elimina el margen alrededor del cuerpo */
 }
 
 /* Estilos para el contenedor de navegación (header) */
 nav {
     display: flex; /* Uso de Flexbox para alinear elementos */
-    align-items: center;
-    justify-content: space-between; /* Distribución de espacio entre logo y enlaces */
-    padding-top: 20px;
-    padding-left: 5%;
-    padding-right: 5%;
-    font-weight: bold; /* Negrita en el texto */
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Espacio entre logo y enlaces */
+    padding: 20px 5%; /* Relleno de 20px arriba y abajo, 5% a los lados */
+    font-weight: bold; /* Aplica negrita al texto */
+    background-color: #8b6abb; /* Color de fondo púrpura para la barra de navegación */
 }
 
 h1 {
-    color: purple; /* Color blanco para el título/logo */
-    font-size: 45px; /* Tamaño del texto */
+    color: purple; /* Color del título/logo en púrpura */
+    font-size: 45px; /* Tamaño del texto del título */
 }
 
 /* Estilos para los elementos de la lista del menú */
+ul {
+    display: flex; /* Uso de flexbox para alinear los elementos de la lista */
+    list-style: none; /* Elimina los puntos de la lista */
+    margin-left: auto; /* Empuja la lista hacia la derecha */
+}
+
 ul li {
     display: inline-block; /* Muestra los elementos en línea */
-    padding: 0px 20px; /* Espacio entre los elementos de la lista */
+    padding: 0px 20px; /* Espacio horizontal entre los elementos de la lista */
 }
 
 a {
-    color: purple; /* Color blanco para los enlaces */
-    text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
+    color: white; /* Color de los enlaces en blanco */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
 }
 
 /* Estilo para los enlaces al hacer hover */
 a:hover {
-    color:rgb(221, 0, 221) ; /* Color morado al pasar el mouse */
+    color: rgb(221, 0, 221); /* Cambia el color a morado al pasar el mouse */
 }
 
 /* Estilos para la sección hero */
@@ -58,15 +62,16 @@ a:hover {
 /* Estilos para el contenedor de los botones en la sección hero */
 .ContenedorBotones {
     display: flex; /* Uso de Flexbox para alinear botones */
-    gap: 20px; /* Espacio entre los botones */
+    gap: 20px; /* Espacio de 20px entre los botones */
     margin-top: 20px; /* Espacio superior respecto al título */
 }
 
 /* Estilos compartidos para los botones */
-.BotonEnviar, .BotonRastrear {
+.BotonEnviar,
+.BotonRastrear {
     background-color: #512da8; /* Fondo púrpura */
     color: #fff; /* Texto en color blanco */
-    font-size: 12px;
+    font-size: 12px; /* Tamaño del texto */
     padding: 10px 45px; /* Relleno interno del botón */
     border: 1px solid transparent; /* Sin borde visible */
     border-radius: 8px; /* Bordes redondeados */
@@ -77,7 +82,9 @@ a:hover {
 }
 
 .logo {
-    width: 250px; /* Ajusta el tamaño del logo según tus necesidades */
-    height: auto;
-    border-radius: 50px;
+    position: fixed; /* Mantiene el logo fijo en la pantalla */
+    width: 85px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene la proporción del logo */
+    left: 0; /* Coloca el logo en la esquina izquierda */
+    top: 0; /* Coloca el logo en la parte superior */
 }
