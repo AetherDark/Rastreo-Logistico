@@ -6,8 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreUsuario = htmlspecialchars($_POST['nombreUsuario']);
     $email = htmlspecialchars($_POST['email']);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash de la contraseña
-    $rolID = 3; // Asignar un rol. Asegúrate de que exista en la tabla Roles.
-    $nombreRol = "Usuario"; // O el nombre correspondiente al RolID que estás usando.
+    $rolID = 3; // Asegúrate de que exista en la tabla Roles
+    $nombreRol = "Usuario"; // Nombre correspondiente al RolID
 
     // Preparar la consulta
     $stmt = $conn->prepare("INSERT INTO Usuarios (NombreUsuario, Email, PasswordHash, RolID, NombreRol) VALUES (?, ?, ?, ?, ?)");
@@ -27,9 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $stmt->error;
     }
 
-    // Cerrar la declaración y la conexión
+    // Cerrar la declaración
     $stmt->close();
 }
 
+// Cerrar la conexión
 $conn->close();
 ?>

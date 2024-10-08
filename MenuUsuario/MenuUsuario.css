@@ -1,0 +1,106 @@
+
+/* Cuerpo de la página */
+body {
+    background: linear-gradient(to right, #c9d6ff 0%, #e2e2e2 100%); /* Degradado de fondo */
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    margin: 0; /* Elimina el margen alrededor del cuerpo */
+    font-family: Arial, sans-serif; /* Fuente utilizada en la página */
+}
+
+/* Estilos para el contenedor de navegación (header) */
+header {
+    display: flex; /* Uso de flexbox para alinear elementos en una fila */
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Espacio entre el logo y el saludo */
+    padding: 10px 20px; /* Relleno de la barra superior */
+    background-color: #8b6abb; /* Color de fondo púrpura */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+}
+
+/* Estilo del logo */
+.logo {
+    position: fixed; /* Mantiene el logo fijo en la pantalla */
+    width: 85px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene la proporción del logo */
+    left: 0; /* Coloca el logo en la esquina izquierda */
+    top: 0; /* Coloca el logo en la parte superior */
+}
+
+/* Estilo del menú principal */
+.menu {
+    color: white; /* Color del texto del menú */
+    font-size: 34px; /* Tamaño de fuente para el menú */
+    font-weight: bold; /* Estilo de texto en negrita */
+    flex-grow: 1; /* Permite que el menú ocupe el espacio disponible */
+    text-align: center; /* Centra el texto del menú */
+}
+
+/* Estilo de la barra superior del usuario */
+.greeting {
+    color: white; /* Color de las letras  */
+    font-size: 18px; /* Tamaño de fuente para eltexto */
+    font-weight: bold; /* Estilo de texto en negrita */
+    margin-left: 20px; /* Espacio a la izquierda del saludo */
+}
+
+/* Contenedor de navegación */
+nav {
+    display: flex; /* Uso de flexbox para alinear los elementos de navegación */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* Estilo para los enlaces de navegación */
+nav a {
+    color: white; /* Color de los enlaces en blanco */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    padding: 10px 15px; /* Espacio alrededor del texto de los enlaces */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves para efectos al pasar el mouse */
+}
+
+/* Estilo para los enlaces al hacer hover */
+nav a:hover {
+    background-color: #52377c; /* Color de fondo al pasar el mouse */
+    border-radius: 15px; /* Bordes redondeados en hover */
+}
+
+/* Estilo del contenido principal */
+main {
+    text-align: center; /* Centra el texto del contenido principal */
+    margin-top: 100px; /* Espacio superior del contenido principal */
+}
+
+/* Estilo del título principal */
+h1 {
+    color: #2c3e50; /* Color del texto del título */
+    font-size: 100px; /* Tamaño de fuente del título */
+    margin-bottom: 20px; /* Espacio inferior del título */
+}
+
+/* Estilos para el contenedor de opciones */
+.options {
+    display: inline-block; /* Permite que el contenedor de opciones ocupe solo el espacio necesario */
+    padding: 20px; /* Relleno alrededor de las opciones */
+    border-radius: 15px; /* Bordes redondeados para el contenedor */
+    background-color: #ffffff; /* Fondo blanco para el contenedor */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+/* Estilo de las opciones (botones) */
+.option {
+    display: inline-block; /* Permite que las opciones se alineen en una fila */
+    margin: 0 15px; /* Espacio entre las opciones */
+    padding: 12px 25px; /* Relleno de las opciones */
+    background-color: #8b6abb; /* Color de fondo para las opciones */
+    color: white; /* Color del texto de las opciones */
+    text-decoration: none; /* Elimina el subrayado de las opciones */
+    border-radius: 30px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves para efectos al pasar el mouse */
+    font-size: 18px; /* Tamaño de texto para las opciones */
+}
+
+/* Estilo al pasar el mouse sobre las opciones */
+.option:hover {
+    background-color: #52377c; /* Color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Aumenta el tamaño de la opción al pasar el mouse */
+}

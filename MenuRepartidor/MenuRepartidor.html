@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz del Repartidor</title>
+    <link rel="stylesheet" href="MenuRepartidor.css">
+    <style>
+        /* Estilos adicionales para la barra lateral */
+        .sidebar {
+            width: 200px; /* Ancho de la barra lateral */
+            background-color: #8b6abb; /* Color de fondo de la barra lateral */
+            color: white; /* Color del texto de la barra lateral */
+            position: fixed; /* Fija la barra lateral */
+            height: 100%; /* Ocupa toda la altura de la ventana */
+            padding-top: 20px; /* Espacio superior dentro de la barra lateral */
+            left: -220px; /* Oculta la barra lateral fuera de la vista */
+            transition: left 0.3s; /* Transición suave al mostrar/ocultar */
+        }
+
+        .sidebar.show {
+            left: 0; /* Muestra la barra lateral */
+        }
+
+        .sidebar a {
+            display: block; /* Los enlaces ocupan toda la línea */
+            color: white; /* Color del texto de los enlaces */
+            padding: 10px 15px; /* Espacio alrededor del texto */
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+            transition: background-color 0.3s; /* Transición suave para hover */
+        }
+
+        .sidebar a:hover {
+            background-color: #52377c; /* Color de fondo al pasar el mouse */
+        }
+
+        /* Ajustar el contenido principal */
+        main {
+            margin-left: 20px; /* Espacio a la izquierda para la barra lateral */
+            padding: 20px; /* Relleno en el contenido principal */
+            text-align: center; /* Centra el texto del contenido principal */
+        }
+
+        /* Estilos del botón de menú */
+        .menu-toggle {
+            background-color: #8b6abb;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            position: fixed; /* Fija el botón en la parte superior izquierda */
+            top: 10px;
+            left: 10px;
+            z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+      
+        <div class="greeting">¡Hola, [Nombre del Repartidor]!</div>
+    </header>
+
+    <button class="menu-toggle">☰</button> <!-- Botón para alternar el menú -->
+
+    <div class="sidebar">
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Lista de envíos asignados</a>
+            <a href="#">Actualizar estado de pedidos</a>
+            <a href="#">Cerrar Sesión</a>
+        </nav>
+    </div>
+
+    <main>
+        <h1>Bienvenido a Trace&Track!</h1>
+        
+    </main>
+
+    <script>
+        const toggleButton = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('show'); // Alternar clase para mostrar/ocultar
+        });
+    </script>
+</body>
+</html>
