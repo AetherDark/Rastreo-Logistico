@@ -1,5 +1,4 @@
-/* Importa la fuente 'Montserrat' de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 /* Reinicia los márgenes y rellenos de todos los elementos y establece la fuente 'Montserrat' */
 * {
@@ -26,23 +25,27 @@ body {
     border-radius: 30px;
     box-shadow: 0 5px rgba(0, 0, 0, 0.35);
     position: relative;
-    overflow: hidden;
     width: 768px;
     max-width: 100%;
-    min-height: 480px;
+    padding: 20px;
 }
 
-/* Aplica estilo a los párrafos dentro del contenedor */
-.container p {
+/* Estilo para los encabezados y párrafos dentro del contenedor */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #555555;
+    margin: 10px 0;
+}
+
+p {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.3px;
-    margin: 20px 0;
-}
-
-/* Define el tamaño de fuente para los <span> */
-.container span {
-    font-size: 12px;
 }
 
 /* Estiliza los enlaces dentro del contenedor */
@@ -53,42 +56,16 @@ body {
     margin: 15px 0 10px;
 }
 
-/* Aplica estilo a los botones con un color de fondo púrpura, texto blanco y bordes redondeados */
-
-.container button {
-    background-color: #512da8;
-    color: #fff;
-    font-size: 12px;
-    padding: 10px 45px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-/* Estilo específico para los botones ocultos */
-
-.container button.hidden {
-    background-color: transparent;
-    border-color: #fff;
-}
-
 /* Estiliza los formularios para que estén centrados y alineados verticalmente dentro del contenedor */
 .container form {
-    background-color: #fff;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
-    height: 100%;
+    align-items: center;
 }
 
 /* Estiliza los inputs con bordes redondeados y un fondo gris claro */
-.container input {
+.container input,
+.container textarea {
     background-color: #eee;
     border: none;
     margin: 8px 0;
@@ -99,142 +76,52 @@ body {
     outline: none;
 }
 
-/* Contenedor de los formularios, posicionado absolutamente para permitir las animaciones */
-.form-container {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    transition: all 0.6s ease-in-out;
+/* Estilo para el área de texto */
+.container textarea {
+    height: 100px;
+    resize: none; /* Evita que se redimensione */
 }
 
-/* Posiciona el contenedor del formulario de inicio de sesión en el lado izquierdo */
-.sign-in-container {
-    left: 0;
-    width: 50%;
-    z-index: 2;
+/* Estiliza los botones con un color de fondo púrpura, texto blanco y bordes redondeados */
+.container button {
+    background-color: #512da8;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Mueve el contenedor de inicio de sesión a la derecha cuando se activa la clase 'active' en el contenedor principal */
-.container.active .sign-in-container {
-    transform: translateX(100%);
+/* Efecto hover para los botones */
+.container button:hover {
+    background-color: #412a8b; /* Color al pasar el ratón */
 }
 
-/* El formulario de registro inicialmente está oculto y tiene menor z-index */
-.sign-up-container {
-    left: 0;
-    width: 50%;
-    z-index: 1;
-    opacity: 0;
-}
-
-/* Cuando el contenedor está activo, el formulario de registro se muestra con una animación */
-.container.active .sign-up-container {
-    transform: translateX(100%);
-    opacity: 1;
-    z-index: 5;
-    animation: move 0.6s;
-}
-
-/* Define la animación que controla la transición del formulario de registro */
-@keyframes move {
-    0%, 49.99% {
-        z-index: 0;
-        opacity: 0;
-    }
-    50%, 100% {
-        z-index: 5;
-        opacity: 1;
-    }
-}
-
-/* Estilo para el contenedor de iconos sociales */
-.social-icons {
+/* Estilo para los iconos sociales */
+.social-container {
+    text-align: center;
     margin: 20px 0;
 }
 
-/* Estiliza los iconos sociales con un borde y forma redonda */
 .social-container a {
     border: 1px solid #ccc;
-    border-radius: 20%;
+    border-radius: 50%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    margin: 0 3px;
+    margin: 0 5px;
     width: 40px;
     height: 40px;
+    color: #333;
 }
 
-/* Contenedor del panel de alternancia, posicionado a la derecha del contenedor de formularios */
-.toggle-container {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
-    transition: all 0.6s ease-in-out;
-    border-radius: 150px 0 0 100px;
-    z-index: 1000;
-}
-
-/* Desplaza el contenedor de alternancia hacia la izquierda cuando se activa la clase 'active' */
-.container.active .toggle-container {
-    transform: translateX(-100%);
-    border-radius: 0 150px 100px 0;
-}
-
-/* Estiliza el área de alternancia con un degradado de fondo púrpura y azul */  
-.toggle {
-    background-color: #512da8;
-    height: 100%;
-    background: linear-gradient(to right, #5c6bc0, #512da8);
-    color: #fff;
-    position: relative;
-    left: -100%;
-    height: 100%;
-    width: 200%;
-    transform: translateX(0);
-    transition: all 0.6s ease-in-out;
-}
-
-/* Mueve el área de alternancia cuando se activa la clase 'active' */
-.container.active .toggle {
-    transform: translateX(50%);
-}
-
-/* Paneles de alternancia para mostrar mensajes de bienvenida o registro, posicionados a la izquierda o derecha */
-.toggle-panel {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 30px;
-    text-align: center;
-    top: 0;
-    transform: translateX(0);
-    transition: all 0.6s ease-in-out;
-}
-
-/* Posiciona el panel izquierdo fuera de la pantalla inicialmente */
-.toggle-left {
-    transform: translateX(-200%);
-}
-
-/* Cuando el contenedor está activo, el panel izquierdo se desplaza hacia el centro */
-.container.active .toggle-left {
-    transform: translateX(0);
-}
-
-/* Posiciona el panel derecho en el lado derecho de la pantalla inicialmente */
-.toggle-right {
-    right: 0;
-    transform: translateX(0);
-}
-
-/* Cuando el contenedor está activo, el panel derecho se desplaza fuera de la pantalla */
-.container.active .toggle-right {
-    transform: translateX(200%);
+/* Efecto hover para los iconos sociales */
+.social-container a:hover {
+    background-color: #e2e2e2; /* Color al pasar el ratón */
 }

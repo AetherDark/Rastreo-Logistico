@@ -1,0 +1,81 @@
+/* Cuerpo de la página */
+body {
+    background: linear-gradient(to right, #c9d6ff 0%, #e2e2e2 100%);
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para el contenedor de navegación (header) */
+header {
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    padding: 20px 20px;
+    background-color: #8b6abb;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo del logo */
+.logo {
+    position: fixed;
+    width: 85px;
+    height: auto;
+    left: 0%;
+    top: 0;
+}
+
+/* Estilo del botón de menú */
+.menu-toggle {
+    background-color: #8b6abb;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: fixed;
+    top: 100px; /* Ajusta este valor para moverlo hacia abajo */
+    left: 10px; /* Ajustar según sea necesario */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+
+/* Estilos de la barra lateral */
+.sidebar {
+    width: 200px;
+    background-color: #8b6abb;
+    color: white;
+    position: fixed;
+    height: 100%;
+    padding-top: 100px; /* Espacio superior para alinear con el header */
+    left: -220px; /* Oculto inicialmente */
+    transition: left 0.3s;
+}
+
+/* Estilo para los enlaces de navegación en la barra lateral */
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin: 0; /* Sin margen adicional */
+}
+
+/* Efecto hover para enlaces en la barra lateral */
+.sidebar a:hover {
+    background-color: #52377c;
+}
+
+/* Estilo del contenido principal */
+main {
+    text-align: center;
+    margin-top: 100px; /* Espacio superior del contenido principal */
+}
+
+/* Estilo del título principal */
+h1 {
+    color: #2c3e50;
+    font-size: 75px;
+    margin-bottom: 20px;
+}

@@ -3,117 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo de Página con Barras</title>
-    <link rel="stylesheet" href="MenuUsuario.css"> <!-- Conexión al archivo CSS -->
-    <style>
-        body {
-            display: flex;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #c9d6ff 0%, #e2e2e2 100%);
-        }
-
-        .navbar {
-            background-color: #8915db; /* Color de la barra de navegación */
-            color: white; /* Color del texto */
-            padding: 15px; /* Espaciado interno */
-            text-align: center; /* Centrar texto */
-            width: 200%; /* Asegurar que ocupa todo el ancho */
-        }
-
-        .sidebar {
-            width:150px; /* Ancho de la barra lateral */
-            background-color: #6a0dad; /* Color de fondo de la barra lateral */
-            color: white; /* Color del texto */
-            padding: 20px; /* Espaciado interno */
-            height: 100vh; /* Altura completa de la ventana */
-            position: fixed; /* Fijar la barra lateral */
-        }
-
-        .sidebar h2 {
-            margin-top: 0; /* Eliminar margen superior */
-            width: 50px;
-        }
-
-        .sidebar ul {
-            list-style-type: none; /* Sin viñetas */
-            padding: 0; /* Sin padding */
-        }
-
-        .sidebar li {
-            margin: 10px 0; /* Espaciado entre elementos de la lista */
-        }
-
-        .sidebar a {
-            color: white; /* Color de los enlaces */
-            text-decoration: none; /* Sin subrayado */
-        }
-
-        .sidebar a:hover {
-            text-decoration: underline; /* Subrayado al pasar el mouse */
-        }
-
-        .content {
-            margin-left: 270px; /* Dejar espacio para la barra lateral */
-            padding: 20px; /* Espaciado interno */
-            background-color: #ecf0f1; /* Color de fondo del contenido */
-            flex: 1; /* Toma el resto del espacio disponible */
-        }
-
-        .section {
-            display: none; /* Ocultar todas las secciones por defecto */
-        }
-
-        .active {
-            display: block; /* Mostrar la sección activa */
-        }
-    </style>
+    <title>Menú de Usuario</title>
+    <link rel="stylesheet" href="MenuUsuario.css">
 </head>
 <body>
-
-    <div class="navbar">
-        <h1>Trace&Track</h1>
-    </div>
-
-    <div class="sidebar">
-        <h2>Menú</h2>
-        <ul>
-            <li><a href="#" onclick="showSection('usuario')">Usuario</a></li>
-            <li><a href="#" onclick="showSection('administrador')">Administrador</a></li>
-            <li><a href="#" onclick="showSection('repartidor')">Repartidor</a></li>
-        </ul>
-    </div>
-
-    <div class="content">
-        <div id="usuario" class="section active">
-            <h2>Usuario</h2>
-            <p>Esta es la sección del Usuario.</p>
+    <header>
+        <img src="logo.png" alt="Logotipo" class="logo">
+        <div class="menu">Trace&Track</div>
+        <div class="greeting">Usuario</div>
+    </header>
+    <main>
+        <h1>Bienvenido</h1>
+        <div class="options">
+            <a href="#rastreo" class="option">Rastrear Pedido</a>
+            <a href="#enviar" class="option">Enviar Pedido</a>
         </div>
-
-        <div id="administrador" class="section">
-            <h2>Administrador</h2>
-            <p>Esta es la sección del Administrador.</p>
-        </div>
-
-        <div id="repartidor" class="section">
-            <h2>Repartidor</h2>
-            <p>Esta es la sección del Repartidor.</p>
-        </div>
-    </div>
-
-    <script>
-        function showSection(sectionId) {
-            // Ocultar todas las secciones
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Mostrar la sección seleccionada
-            const activeSection = document.getElementById(sectionId);
-            activeSection.classList.add('active');
-        }
-    </script>
-
+    </main>
 </body>
 </html>
