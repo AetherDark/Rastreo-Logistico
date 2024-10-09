@@ -1,33 +1,67 @@
 <?php
-include 'DataBase.php'; // Incluir el archivo de conexión
+include '../Base de datos/DataBase.php'; // Incluir el archivo de conexión
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recuperar datos del formulario
     $email = htmlspecialchars($_POST['email']);
     $password = $_POST['password'];
 
-    // Preparar la consulta
-    $stmt = $conn->prepare("SELECT * FROM Usuarios WHERE Email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    // Preparar las variables de salida
+    $id = null;
+    $nombreUsuario = null;
+    $rolID = null;
+    $nombreRol = null;
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        // Verificar la contraseña
-        if (password_verify($password, $row['PasswordHash'])) {
-            echo "Inicio de sesión exitoso. Bienvenido " . $row['NombreUsuario'];
-            // Aquí puedes iniciar la sesión o redirigir al usuario a otra página
-        } else {
-            echo "Contraseña incorrecta";
-        }
-    } else {
-        echo "No se encontró el usuario";
+    // Preparar la llamada al procedimiento almacenado
+    $stmt = $conn->prepare("CALL iniciarSesion(?, ?, @id, @nombreUsuario, @rolID, @nombreRol)");
+
+    // Verificar si la preparación de la consulta fue exitosa
+    if ($stmt === false) {
+        die("Error en la preparación de la consulta: " . $conn->error);
     }
 
-    // Cerrar la declaración y la conexión
+    // Asignar parámetros
+    $stmt->bind_param("ss", $email, $password);
+
+    // Ejecutar el procedimiento
+    if ($stmt->execute()) {
+        // Obtener los valores de salida
+        $result = $conn->query("SELECT @id AS id, @nombreUsuario AS nombreUsuario, @rolID AS rolID, @nombreRol AS nombreRol");
+        $row = $result->fetch_assoc();
+
+        // Asignar las variables de salida
+        $id = $row['id'];
+        $nombreUsuario = $row['nombreUsuario'];
+        $rolID = $row['rolID'];
+        $nombreRol = $row['nombreRol'];
+
+        // Verificar si la sesión fue exitosa
+        if ($id !== null) {
+            // Iniciar sesión o redirigir según el RolID
+            session_start();
+            $_SESSION['id'] = $id;
+            $_SESSION['nombreUsuario'] = $nombreUsuario;
+
+            if ($rolID == 3) {
+                header("Location: ../MenuUsuario/MenuUsuario.html"); // Redirigir a usuario
+            } elseif ($rolID == 2) {
+                header("Location: ../MenuRepartidor/MenuRepartidor.html"); // Redirigir a repartidor
+            } elseif ($rolID == 1) {
+                header("Location: ../MenuAdministrador/MenuAdministrador.html"); // Redirigir a administrador
+            }
+            exit(); // Asegúrate de llamar a exit después de header
+        } else {
+            echo "Contraseña incorrecta o usuario no encontrado.";
+        }
+    } else {
+        // Manejar error de ejecución
+        echo "Error al ejecutar el procedimiento: " . $stmt->error;
+    }
+
+    // Cerrar la declaración
     $stmt->close();
 }
 
+// Cerrar la conexión
 $conn->close();
 ?>
