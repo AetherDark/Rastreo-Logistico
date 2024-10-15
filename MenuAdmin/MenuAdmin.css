@@ -1,0 +1,104 @@
+/* Estilos generales */
+body { 
+  font-family: Arial, sans-serif; /* Fuente de texto */
+  background-color: #c9d6ff; /* Color de fondo base */
+  background: linear-gradient(to right, #c9d6ff 0%, #e2e2e2 100%); /* Degradado de fondo */
+  margin: 0; /* Elimina márgenes predeterminados */
+  padding: 0; /* Elimina relleno predeterminado */
+  display: flex; /* Usa flexbox para estructurar */
+  flex-direction: column; /* Alinea elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+/* Encabezado */
+.header { 
+  background-color: #4c2d78; /* Color de fondo púrpura */
+  width: 100%; /* Ancho completo de la página */
+  padding: 20px 0; /* Espaciado superior e inferior */
+  text-align: center; /* Centra el texto */
+  position: sticky; /* Mantiene el encabezado fijo al hacer scroll */
+  top: 0; /* Fija en la parte superior */
+}
+
+.header h1 { 
+  color: #ffffff; /* Color blanco para el texto */
+  font-size: 2.5em; /* Tamaño grande del título */
+  margin: 0; /* Elimina márgenes del título */
+}
+
+/* Contenedor principal para centrar contenido */
+.content { 
+  display: flex; /* Flexbox para organizar el contenido */
+  flex-direction: column; /* Columnas verticales */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  min-height: 80vh; /* Asegura que el contenido ocupe el 80% de la pantalla */
+}
+
+/* Contenedor de las tarjetas */
+.container { 
+  display: flex; /* Flexbox para las tarjetas */
+  gap: 100px; /* Separación entre tarjetas */
+  margin: 30px 0; /* Espaciado superior e inferior */
+}
+
+.card { 
+  background-color: #e6e6e6; /* Fondo gris claro para las tarjetas */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 50px; /* Espaciado interno de la tarjeta */
+  width: 200px; /* Ancho fijo para las tarjetas */
+  text-align: center; /* Centra el texto */
+  border: 1px solid #000000; /* Borde negro */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para hover */
+}
+
+.card:hover { 
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el cursor */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
+}
+
+.card h2 { 
+  font-size: 1.5em; /* Tamaño del subtítulo */
+  color: #333; /* Color gris oscuro del texto */
+  margin: 0; /* Elimina márgenes del subtítulo */
+}
+
+.card p { 
+  color: #333; /* Color gris oscuro del párrafo */
+  font-size: 0.9em; /* Tamaño de fuente del párrafo */
+  margin: 10px 0 20px; /* Espaciado superior, inferior */
+}
+
+/* Botón de Ver en las tarjetas */
+.card button { 
+  background-color: #b299d7; /* Color púrpura claro de fondo del botón */
+  color: #ffffff; /* Texto blanco */
+  border: 1px solid #000000; /* Borde negro del botón */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+  font-size: 1em; /* Tamaño de fuente del botón */
+}
+
+.card button:hover { 
+  background-color: #8f6bbd; /* Cambia a un púrpura más oscuro al pasar el cursor */
+}
+
+/* Botón de cerrar sesión */
+.footer { 
+  margin-top: 20px; /* Espaciado superior */
+}
+
+.logout { 
+  background-color: #e6e6e6; /* Fondo gris claro */
+  color: #333; /* Texto gris oscuro */
+  border: 1px solid #000000; /* Borde negro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+  font-size: 1em; /* Tamaño de la fuente */
+}
+
+.logout:hover { 
+  background-color: #cccccc; /* Cambia a un gris más oscuro al pasar el cursor */
+}
