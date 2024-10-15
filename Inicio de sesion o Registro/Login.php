@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } elseif ($rolID == 2) {
                 header("Location: ../MenuRepartidor/MenuRepartidor.html"); // Redirigir a repartidor
             } elseif ($rolID == 1) {
-                header("Location: ../MenuAdministrador/MenuAdministrador.html"); // Redirigir a administrador
+                header("Location: ../MenuAdmin/MenuAdmin.html"); // Redirigir a administrador
             }
             exit(); // Asegúrate de llamar a exit después de header
         } else {
