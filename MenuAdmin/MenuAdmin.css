@@ -1,104 +1,153 @@
 /* Estilos generales */
 body { 
-  font-family: Arial, sans-serif; /* Fuente de texto */
-  background-color: #c9d6ff; /* Color de fondo base */
-  background: linear-gradient(to right, #c9d6ff 0%, #e2e2e2 100%); /* Degradado de fondo */
-  margin: 0; /* Elimina márgenes predeterminados */
-  padding: 0; /* Elimina relleno predeterminado */
-  display: flex; /* Usa flexbox para estructurar */
-  flex-direction: column; /* Alinea elementos en columna */
-  align-items: center; /* Centra los elementos horizontalmente */
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Encabezado */
 .header { 
-  background-color: #4c2d78; /* Color de fondo púrpura */
-  width: 100%; /* Ancho completo de la página */
-  padding: 20px 0; /* Espaciado superior e inferior */
-  text-align: center; /* Centra el texto */
-  position: sticky; /* Mantiene el encabezado fijo al hacer scroll */
-  top: 0; /* Fija en la parte superior */
+  background-color: #4c2d78;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.header h1 { 
-  color: #ffffff; /* Color blanco para el texto */
-  font-size: 2.5em; /* Tamaño grande del título */
-  margin: 0; /* Elimina márgenes del título */
+.header h1 {
+  color: #ffffff;
+  font-size: 2.5em;
+  margin: 0;
 }
 
-/* Contenedor principal para centrar contenido */
-.content { 
-  display: flex; /* Flexbox para organizar el contenido */
-  flex-direction: column; /* Columnas verticales */
-  align-items: center; /* Centra horizontalmente */
-  justify-content: center; /* Centra verticalmente */
-  min-height: 80vh; /* Asegura que el contenido ocupe el 80% de la pantalla */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
 }
 
-/* Contenedor de las tarjetas */
-.container { 
-  display: flex; /* Flexbox para las tarjetas */
-  gap: 100px; /* Separación entre tarjetas */
-  margin: 30px 0; /* Espaciado superior e inferior */
+/* Ajusta el contenedor para centrar las tarjetas */
+.container {
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra las tarjetas */
+  gap: 30px; /* Espaciado entre las tarjetas */
+  padding: 0 20px;
+  margin: 0 auto; /* Centrado horizontal del contenedor */
+  box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
 }
 
-.card { 
-  background-color: #e6e6e6; /* Fondo gris claro para las tarjetas */
-  border-radius: 15px; /* Bordes redondeados */
-  padding: 50px; /* Espaciado interno de la tarjeta */
-  width: 200px; /* Ancho fijo para las tarjetas */
-  text-align: center; /* Centra el texto */
-  border: 1px solid #000000; /* Borde negro */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para hover */
+/* Estilos para tarjetas */
+.card {
+  background-color: #e6e6e6;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #000000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 280px; /* Ancho fijo más amplio para pantallas grandes */
+  height: auto; /* Permite que las tarjetas se adapten a su contenido */
 }
 
-.card:hover { 
-  transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el cursor */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card h2 { 
-  font-size: 1.5em; /* Tamaño del subtítulo */
-  color: #333; /* Color gris oscuro del texto */
-  margin: 0; /* Elimina márgenes del subtítulo */
+.card h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-.card p { 
-  color: #333; /* Color gris oscuro del párrafo */
-  font-size: 0.9em; /* Tamaño de fuente del párrafo */
-  margin: 10px 0 20px; /* Espaciado superior, inferior */
+.card p {
+  color: #333;
+  font-size: 0.9em;
+  margin-bottom: auto;
 }
 
-/* Botón de Ver en las tarjetas */
-.card button { 
-  background-color: #b299d7; /* Color púrpura claro de fondo del botón */
-  color: #ffffff; /* Texto blanco */
-  border: 1px solid #000000; /* Borde negro del botón */
-  border-radius: 10px; /* Bordes redondeados */
-  padding: 10px 20px; /* Espaciado interno */
-  cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
-  font-size: 1em; /* Tamaño de fuente del botón */
+.btn {
+  background-color: #b299d7;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 20px;
 }
 
-.card button:hover { 
-  background-color: #8f6bbd; /* Cambia a un púrpura más oscuro al pasar el cursor */
+.btn:hover {
+  background-color: #8f6bbd;
 }
 
-/* Botón de cerrar sesión */
-.footer { 
-  margin-top: 20px; /* Espaciado superior */
+.footer {
+  margin-top: 20px;
 }
 
-.logout { 
-  background-color: #e6e6e6; /* Fondo gris claro */
-  color: #333; /* Texto gris oscuro */
-  border: 1px solid #000000; /* Borde negro */
-  border-radius: 10px; /* Bordes redondeados */
-  padding: 10px 20px; /* Espaciado interno del botón */
-  cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
-  font-size: 1em; /* Tamaño de la fuente */
+.logout {
+  background-color: #e6e6e6;
+  color: #333;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 10px 20px;
 }
 
-.logout:hover { 
-  background-color: #cccccc; /* Cambia a un gris más oscuro al pasar el cursor */
+.logout:hover {
+  background-color: #cccccc;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Las tarjetas se apilan verticalmente en móviles */
+    align-items: center; /* Centra las tarjetas en la columna */
+  }
+
+  .card {
+    width: 100%; /* Las tarjetas ocupan todo el ancho en móviles */
+    max-width: 400px; /* Limita el ancho máximo para que no sean demasiado grandes */
+    margin-bottom: 20px; /* Añade un margen entre tarjetas */
+  }
+}
+
+/* Media query para resoluciones intermedias */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Ajusta el espacio entre tarjetas si es necesario */
+  }
+}
+
+/* Estilos para el logo */
+.Logo {
+  font-family: 'Futura', 'Arial', sans-serif; /* Fuente similar a FedEx */
+  font-size: 3em; /* Tamaño grande para resaltar el logo */
+  font-weight: bold; /* Negritas para darle fuerza */
+}
+
+/* Simulando el estilo de FedEx con colores y mayúsculas */
+.Logo .Track {
+  color: #ff6600; /* Color naranja (similar a FedEx) */
+}
+
+.Logo .Trace {
+  color: #4c2d78; /* Color púrpura */
+}
+
+.Logo span {
+  font-weight: bold;
 }

@@ -4,37 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trace & Track</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="MenuAdmin.css">
 </head>
 <body>
-    <div class="header"> <!-- Seccion de encabezado de pagina -->
-        <h1>Trace & Track</h1> <!-- Titulo de la pagina -->
-    </div>
-    
-    <div class="content"> <!-- Seccion principal de contenido de pagina -->
-        <div class="container"> <!-- Contenedor para organizar las tarjetas (cards) -->
-            <div class="card"> <!-- Primera tarjeta con opciones relacionados a los usuarios -->
-                <h2>Usuarios</h2> <!-- Subtitulo que indica la funcionalidad de la tarjeta -->
-                <p>Añadir o eliminar usuarios</p> <!-- Breve descripcion de lo que se puede hacer en esta seccion -->
-                <button>Ver</button> <!-- Boton que llevara a la vista de usuarios -->
-            </div>
-            
-            <div class="card"> <!-- Segunda tarjeta con opciones relacionados a los pedidos -->
-                <h2>Pedidos</h2> <!-- Subtitulo que indica la funcionalidad de la tarjeta -->
-                <p>Asignar pedidos</p> <!-- Breve descripcion de lo que se puede hacer en esta seccion -->
-                <button>Ver</button> <!-- Boton que llevara a la vista de pedidos -->
-            </div>
-            
-            <div class="card"> <!-- Tercera tarjeta con opciones relacionados a la cancelacion de pedidos -->
-                <h2>Cancelacion</h2> <!-- Subtitulo que indica la funcionalidad de la tarjeta -->
-                <p>Cancelar pedidos</p> <!-- Breve descripcion de lo que se puede hacer en esta seccion -->
-                <button>Ver</button> <!-- Boton que llevara a la vista de cancelacion de pedidos -->
+    <header class="header"> <!-- Sección de encabezado de página -->
+        <h1 class="Logo">
+            <span class="trace">TRACE&</span><span class="Track">TRACK</span>
+        </h1> <!-- Título de la página -->
+    </header>
+
+    <div class="content"> <!-- Sección principal de contenido de página -->
+        <div class="container d-flex flex-column align-items-center"> <!-- Ajuste para centrar las tarjetas -->
+            <div class="row justify-content-center"> <!-- Fila centrada para las tarjetas -->
+                <div class="col-md-4 d-flex"> <!-- Columna con el tamaño adecuado para pantallas medianas/grandes -->
+                    <div class="card flex-fill"> <!-- Tarjeta para la sección de usuarios -->
+                        <h2>Usuarios</h2>
+                        <p>Añadir o eliminar usuarios</p>
+                        <button class="btn">Ver</button> <!-- Botón de Bootstrap -->
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="card flex-fill"> <!-- Tarjeta para la sección de pedidos -->
+                        <h2>Pedidos</h2>
+                        <p>Asignar pedidos</p>
+                        <button class="btn">Ver</button>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="card flex-fill"> <!-- Tarjeta para la sección de cancelación -->
+                        <h2>Cancelación</h2>
+                        <p>Cancelar pedidos</p>
+                        <button class="btn">Ver</button>
+                    </div>
+                </div>
             </div>
         </div>
         
-        <div class="footer"> <!-- Pie de página que contiene el botón de cerrar sesión -->
-            <button class="logout">Cerrar sesión</button> <!-- Botón para que el usuario cierre sesión -->
-        </div>
+        <footer class="footer"> <!-- Pie de página -->
+            <button class="logout btn">Cerrar sesión</button> <!-- Botón de Bootstrap -->
+        </footer>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
