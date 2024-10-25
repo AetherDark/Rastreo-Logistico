@@ -22,11 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         // Redirigir a sesion.html después del registro exitoso
-        header("Location: Sesion.html"); // Asegúrate de que la ruta sea correcta
+        header("Location: Sesion.html?registro=1"); // Asegúrate de que la ruta sea correcta
         exit(); // Asegúrate de llamar a exit después de header
     } else {
         // Si hay un error, puedes redirigir a la misma página de registro o manejar el error como desees
-        header("Location: Registro.php?error=" . urlencode($stmt->error));
+        header("Location: Registro.php?error=1" . urlencode($stmt->error));
         exit(); // Asegúrate de llamar a exit después de header
     }      
 

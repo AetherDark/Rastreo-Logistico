@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             exit(); // Asegúrate de llamar a exit después de header
         } else {
-            echo "Contraseña incorrecta o usuario no encontrado.";
+            header("Location: Sesion.html?error=1"); // Redirigir a inicio de sesión con error
         }
     } else {
         // Manejar error de ejecución
