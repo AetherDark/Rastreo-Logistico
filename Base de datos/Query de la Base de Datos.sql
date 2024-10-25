@@ -29,6 +29,9 @@ create table Usuarios
     FOREIGN KEY (RolID, NombreRol) REFERENCES Roles(ID, Nombre) -- Referencia solo a ID y Nombre
 );
 
+-- Usuario de rol ADMIN
+INSERT INTO Usuarios (NombreUsuario, Email, PasswordHash, RolID, NombreRol)
+VALUES ('ADMIN', 'admin@gmail.com', '123456', 1, 'Admin');
 
 -- Gestión de pedidos y rastreo
 
@@ -59,4 +62,13 @@ CREATE TABLE HistorialPedidos -- Para registrar los cambios de estado y quién l
     FOREIGN KEY (PedidoID) REFERENCES Pedidos(ID),
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID),
     FOREIGN KEY (EstadoID) REFERENCES EstadosPedido(ID)
+);
+
+-- Tabla de recuperacion de contraseña
+CREATE TABLE PasswordResets (
+    Email VARCHAR(255) NOT NULL,
+    Token VARCHAR(255) NOT NULL,
+    FechaCreacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (Email),  -- Si solo va a haber un token activo por correo
+    INDEX(Email)  -- Índice para consultas más rápidas
 );

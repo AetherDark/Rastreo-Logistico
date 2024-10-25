@@ -14,7 +14,7 @@
         </h1> <!-- Título de la página -->
     </header>
 
-    <div class="content"> <!-- Sección principal de contenido de página -->
+    <div class="content" action="Admin.php"> <!-- Sección principal de contenido de página -->
         <div class="container d-flex flex-column align-items-center"> <!-- Ajuste para centrar las tarjetas -->
             <div class="row justify-content-center"> <!-- Fila centrada para las tarjetas -->
                 <div class="col-md-4 d-flex"> <!-- Columna con el tamaño adecuado para pantallas medianas/grandes -->
@@ -42,7 +42,9 @@
         </div>
         
         <footer class="footer"> <!-- Pie de página -->
-            <button class="logout btn">Cerrar sesión</button> <!-- Botón de Bootstrap -->
+            <form action="Admin.php" method="POST"> <!-- Enviar la solicitud al archivo Admin.php -->
+                <button type="submit" name="logout" class="logout btn btn-danger">Cerrar sesión</button> <!-- Botón de cierre de sesión -->
+            </form>
         </footer>
     </div>
 
