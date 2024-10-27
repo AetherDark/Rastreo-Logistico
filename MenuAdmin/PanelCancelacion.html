@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trace & Track</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="MenuAdmin.css">
+</head>
+<body>
+    <header class="header"> <!-- Sección de encabezado de página -->
+        <h1 class="Logo text-center">
+            <span class="trace">TRACE&</span><span class="Track">TRACK</span>
+        </h1> <!-- Título de la página -->
+    </header>
+
+    <div class="container-fluid mt-5">
+        <h2 class="text-center">Cancelación de Pedido</h2>
+        <p class="text-center text-muted">Completar el formulario para la cancelación del pedido</p>
+        
+        <form>
+            <!-- Número de pedido -->
+            <div class="form-group">
+                <label for="pedido">ID Pedido:</label>
+                <input type="text" class="form-control w-100" id="pedido" name="pedido" placeholder="Ingresa el número de pedido" required>
+            </div>
+    
+            <!-- Nombre del cliente -->
+            <div class="form-group">
+                <label for="nombre">Nombre Cliente:</label>
+                <input type="text" class="form-control w-100" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" required>
+            </div>
+    
+            <!-- Motivo de la cancelación -->
+            <div class="form-group">
+                <label for="motivo">Motivo de la Cancelación:</label>
+                <select class="form-control w-100" id="motivo" name="motivo" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="cambio_decision">Cambio de decisión</option>
+                    <option value="problemas_pago">Problemas con el pago</option>
+                    <option value="envio_tardio">Envío tardío</option>
+                    <option value="error_pedido">Error en el pedido</option>
+                </select>
+            </div>
+    
+            <!-- Descripción adicional -->
+            <div class="form-group">
+                <label for="descripcion">Descripción Adicional (opcional):</label>
+                <textarea class="form-control w-100" id="descripcion" name="descripcion" rows="3" placeholder="Proporciona detalles adicionales sobre la cancelación"></textarea>
+            </div>
+    
+            <!-- Botón de envío -->
+            <button type="submit" class="btn btn-danger btn-block">Cancelar</button>
+        </form>
+    </div>
+
+    <!-- Incluye Bootstrap JS y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <footer class="footer mt-5 text-center">
+        <p>&copy; 2024 Trace & Track. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

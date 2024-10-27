@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trace & Track</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="MenuAdmin.css">
+</head>
+<body>
+    <header class="header"> <!-- Sección de encabezado de página -->
+        <h1 class="Logo text-center">
+            <span class="trace">TRACE&</span><span class="Track">TRACK</span>
+        </h1> <!-- Título de la página -->
+    </header>
+
+    <div class="container-fluid mt-5"> <!-- Cambiado a container-fluid -->
+        <h2 class="text-center">Asignacion de Pedidos</h2>
+        <p class="text-center text-muted">Completa el formulario para asignar el pedido a un repartidor</p>
+        
+        <form>
+            <!-- Número de Pedido -->
+            <div class="form-group">
+                <label for="numeroPedido">ID Pedido:</label>
+                <input type="text" class="form-control w-100" id="numeroPedido" name="numeroPedido" placeholder="Ingresa el número de pedido" required>
+            </div>
+    
+            <!-- Selección de Repartidor -->
+            <div class="form-group">
+                <label for="repartidor">Asignar a Repartidor:</label>
+                <select class="form-control w-100" id="repartidor" name="repartidor" required>
+                    <option value="">Selecciona un repartidor</option>
+                    <option value="repartidor1">Juan Pérez</option>
+                    <option value="repartidor2">Ana García</option>
+                    <option value="repartidor3">Carlos Ruiz</option>
+                    <!-- Puedes agregar más opciones de repartidores aquí -->
+                </select>
+            </div>
+    
+            <!-- Fecha de Entrega -->
+            <div class="form-group">
+                <label for="fechaEntrega">Fecha de Entrega:</label>
+                <input type="date" class="form-control w-100" id="fechaEntrega" name="fechaEntrega" required>
+            </div>
+    
+            <!-- Hora de Entrega -->
+            <div class="form-group">
+                <label for="horaEntrega">Hora de Entrega:</label>
+                <input type="time" class="form-control w-100" id="horaEntrega" name="horaEntrega" required>
+            </div>
+    
+            <!-- Notas Adicionales -->
+            <div class="form-group">
+                <label for="notas">Notas Adicionales (opcional):</label>
+                <textarea class="form-control w-100" id="notas" name="notas" rows="3" placeholder="Añade cualquier detalle adicional..."></textarea>
+            </div>
+    
+            <!-- Botón de Asignación -->
+            <button type="submit" class="btn btn-success btn-block">Asignar Pedido</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="footer mt-5 text-center">
+        <p>&copy; 2024 Trace & Track. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
