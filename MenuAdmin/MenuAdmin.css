@@ -89,6 +89,10 @@ body {
   margin-top: 20px;
 }
 
+.ver{
+  color: #ffffff;
+}
+
 .btn:hover {
   background-color: #8f6bbd;
 }

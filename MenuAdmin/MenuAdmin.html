@@ -14,28 +14,28 @@
         </h1> <!-- Título de la página -->
     </header>
 
-    <div class="content" action="Admin.php"> <!-- Sección principal de contenido de página -->
+    <div class="content"> <!-- Sección principal de contenido de página -->
         <div class="container d-flex flex-column align-items-center"> <!-- Ajuste para centrar las tarjetas -->
             <div class="row justify-content-center"> <!-- Fila centrada para las tarjetas -->
                 <div class="col-md-4 d-flex"> <!-- Columna con el tamaño adecuado para pantallas medianas/grandes -->
                     <div class="card flex-fill"> <!-- Tarjeta para la sección de usuarios -->
                         <h2>Usuarios</h2>
                         <p>Añadir o eliminar usuarios</p>
-                        <button class="btn">Ver</button> <!-- Botón de Bootstrap -->
+                        <button class="btn" onclick="window.location.href='PanelUsuaros.html'">Ver</button>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <div class="card flex-fill"> <!-- Tarjeta para la sección de pedidos -->
                         <h2>Pedidos</h2>
                         <p>Asignar pedidos</p>
-                        <button class="btn">Ver</button>
+                        <button class="btn" onclick="window.location.href='PanelPedidos.html'">Ver</button>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <div class="card flex-fill"> <!-- Tarjeta para la sección de cancelación -->
                         <h2>Cancelación</h2>
                         <p>Cancelar pedidos</p>
-                        <button class="btn">Ver</button>
+                        <button class="btn" onclick="window.location.href='PanelCancelacion.html'">Ver</button>
                     </div>
                 </div>
             </div>
