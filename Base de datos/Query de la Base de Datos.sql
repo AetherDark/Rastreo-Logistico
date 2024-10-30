@@ -24,7 +24,7 @@ create table Usuarios
     Email varchar(100) not null unique,
     PasswordHash varchar(255) not null,
     RolID int, -- Solo se guarda el ID del rol
-    NombreRol varchar(50), --Solo se guarda el Nombre del Rol
+    NombreRol varchar(50), -- Solo se guarda el Nombre del Rol
     FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (RolID, NombreRol) REFERENCES Roles(ID, Nombre) -- Referencia solo a ID y Nombre
 );
