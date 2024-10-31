@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             // Configuración del servidor
             $mail->isSMTP();                                            // Enviar usando SMTP
-            $mail->Host       = 'smtp.office365.com';                   // Establecer el servidor SMTP
+            $mail->Host       = 'smtp-mail.outlook.com';                   // Establecer el servidor SMTP
             $mail->SMTPAuth   = true;                                 // Habilitar autenticación SMTP
             $mail->Username   = 'traceandtrackcorp@outlook.com';             // Tu correo electrónico
             $mail->Password   = 'zidcxiptxpncqfcl';                      // Tu contraseña de correo
