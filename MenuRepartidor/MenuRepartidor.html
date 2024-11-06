@@ -3,37 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interfaz del Repartidor</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Trace & Track - Repartidor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="MenuRepartidor.css">
-    <link rel="stylesheet" href="EstilosComunes.css">
 </head>
 <body>
 
-    <header class="custom-navbar text-white p-3 d-flex justify-content-between">
-        <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
-            ☰
-        </button>
-        <div class="greeting">¡Hola, <span id="nombreRepartidor">[Nombre del Repartidor]</span>!</div>
+    <header class="header">
+        <h1 class="Logo">
+            <span class="trace">TRACE&</span><span class="Track">TRACK</span>
+        </h1>
     </header>
 
-    <div class="collapse" id="sidebar">
-        <div class="custom-navbar p-3">
-            <nav>
-                <a href="MenuRepartidor.html" class="text-white d-block mb-2">Inicio</a>
-                <a href="ListaEnvios.html" class="text-white d-block mb-2">Lista de envíos asignados</a>
-                <a href="ActualizarPedidos.html" class="text-white d-block mb-2">Actualizar estado de pedidos</a>
-                <a href="#" class="text-white d-block">Cerrar Sesión</a>
-            </nav>
+    <div class="content">
+        <div class="container d-flex flex-column align-items-center">
+            <div class="row justify-content-center">
+                <div class="col-md-4 d-flex">
+                    <div class="card flex-fill">
+                        <h2>Lista de envíos</h2>
+                        <p>Consulta los envíos asignados</p>
+                        <button class="btn" onclick="window.location.href='ListaEnvios.html'">Ver</button>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="card flex-fill">
+                        <h2>Actualizar pedidos</h2>
+                        <p>Actualizar el estado de pedidos</p>
+                        <button class="btn" onclick="window.location.href='ActualizarPedidos.html'">Ver</button>
+                    </div>
+                </div>
+            </div>
+            <button class="logout-btn btn btn-danger mt-4" onclick="window.location.href='../Menu principal/Menu.html'">Cerrar Sesión</button>
         </div>
     </div>
 
-    <main class="text-center mt-5">
-        <h1>Bienvenido a Trace&Track!</h1>
-    </main>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="Funcionalidades.js"></script>
 </body>
 </html>
