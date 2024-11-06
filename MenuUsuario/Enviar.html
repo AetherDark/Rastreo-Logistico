@@ -3,32 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enviar Envío</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="MenuUsuario.css">
+    <title>Formulario de Envío</title>
+    <link rel="stylesheet" href="estilacho.css">
+    <!-- Enlace a Font Awesome para usar los íconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="script1.js" defer></script> <!-- Agregar el archivo JavaScript -->
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-purple">
-        <div class="container-fluid">
-            <header class="header">
-                <h1 class="Logo">
-                    <span class="Trace">TRACE&</span><span class="Track">TRACK</span>
-                </h1>
-            </header>
-        </div>
-    </nav>
+    <div class="header">
+        <h1>TRACE & TRACK</h1>
+        <p class="slogan">Tu envío, nuestra prioridad</p>
+    </div>
 
-    <main class="container mt-5">
-        <h2 class="text-center mb-4">Formulario de Envío</h2>
-        <form>
-            <div class="mb-3"><label for="tipoEnvio" class="form-label">Tipo de Envío</label><input type="text" class="form-control" id="tipoEnvio" required></div>
-            <div class="mb-3"><label for="destinatario" class="form-label">Destinatario</label><input type="text" class="form-control" id="destinatario" required></div>
-            <div class="mb-3"><label for="remitente" class="form-label">Remitente</label><input type="text" class="form-control" id="remitente" required></div>
-            <div class="mb-3"><label for="comentarios" class="form-label">Comentarios</label><textarea class="form-control" id="comentarios" rows="3"></textarea></div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            <button class="btn btn-primary" onclick="window.location.href='MenuUsuario.html'">Regresar</button>
+    <div class="content">
+        <form id="envioForm" class="envio-form">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo del Destinatario:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Nombre completo">
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección de Envío:</label>
+                <textarea id="direccion" name="direccion" rows="3" required placeholder="Dirección completa"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="tipoEnvio">Tipo de Envío:</label>
+                <select id="tipoEnvio" name="tipoEnvio" required>
+                    <option value="" disabled selected>Selecciona el tipo de envío</option>
+                    <option value="express">Express</option>
+                    <option value="estandar">Estándar</option>
+                    <option value="internacional">Internacional</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Número de Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="Número de teléfono" pattern="[0-9]{10}">
+            </div>
+
+            <div class="form-group">
+                <label for="metodoPago">Método de Pago:</label>
+                <div class="payment-option">
+                    <button type="button" class="payment-btn paypal-btn" data-payment="paypal">
+                        <i class="fa-brands fa-cc-paypal"></i> Pagar con PayPal
+                    </button>
+                </div>
+                <!-- Input oculto para almacenar la opción de pago seleccionada -->
+                <input type="hidden" id="metodoPago" name="metodoPago" value="paypal">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn">Enviar</button>
+            </div>
         </form>
-    </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Sobre nosotros</a>
+            <a href="#">Contáctanos</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos de servicio</a>
+        </div>
+        <p>Trace & Track &copy; 2024</p>
+    </footer>
 </body>
 </html>
