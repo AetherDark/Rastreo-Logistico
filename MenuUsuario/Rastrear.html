@@ -20,10 +20,37 @@
     </nav>
 
     <main class="container text-center">
-        <h2 class="mb-4">Iniciar Rastrear</h2>
+        <h2 class="mb-4">Paquetes enviados</h2>
+        <table class="table table-striped">
+            <!-- Encabezado de la tabla -->
+            <thead>
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Descripcion</th>
+                    <th>Remitente</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla donde se cargarán los usuarios -->
+            <tbody id="envioTableBody">
+                <!-- Aquí se llenarán los datos de los usuarios con JavaScript -->
+            </tbody>
+        </table>
+        <h2 class="mb-4">Paquetes a recibir</h2>
+        <table class="table table-striped">
+            <!-- Encabezado de la tabla -->
+            <thead>
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Descripcion</th>
+                    <th>Remitente</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla donde se cargarán los usuarios -->
+            <tbody id="reciboTableBody">
+                <!-- Aquí se llenarán los datos de los usuarios con JavaScript -->
+            </tbody>
+        </table>
         <div class="search-bar">
-            <input type="text" class="form-control" id="trackingNumber" placeholder="Ingresar número de guía">
-            <button class="btn btn-success mt-2" id="startTracking">Iniciar Rastrear</button>
             <button class="btn btn-success mt-2" onclick="window.location.href='MenuUsuario.html'">Regresar</button>
         </div>
     </main>
