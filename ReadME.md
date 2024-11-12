@@ -1,5 +1,3 @@
-Aquí tienes el README.md con los símbolos ya integrados, listo para copiar y pegar:
-
 # 🚚 Rastreo Logístico
 
 Un sistema para el *rastreo logístico en tiempo real*, diseñado para facilitar el seguimiento y la gestión eficiente de entregas y envíos en todo momento.
