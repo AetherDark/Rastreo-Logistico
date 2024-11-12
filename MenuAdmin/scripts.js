@@ -24,3 +24,43 @@ function deleteUser() {
     })
     .catch(error => console.error('Error al eliminar el usuario:', error));
 }
+
+
+// Alertas de usuarios
+// Función para mostrar la usuario o contraseña no encontrado
+function mostrarAlertaError() {
+    alert('El correo ya existe o usuario ya existe');
+}
+
+// Función para mostrar la alerta de rol no válido
+function mostrarRolNOValido() {
+    alert('El correo ya existe');
+}
+
+// Función para mostrar la alerta de usuario registrado correctamente
+function mostrarAlertaExito() {
+    alert('Usuario registrado correctamente');
+}
+
+// Funcion para mostrar la alerta de error al registrar usuario
+function mostrarAlertaErrorRegistro() {
+    alert('Hubo un error al registrar el usuario.');
+}
+
+// Verificar si existe el parámetro 'error' en la URL para mostrar la alerta
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('existente')) {
+    mostrarAlertaError(); // Llamar a la función de alerta
+}
+// Verificar si existe el parametro 'RolNOValido' en la URL para mostrar la alerta
+else if (urlParams.has('RolNOValido')) {
+    mostrarRolNOValido(); // Llamar a la función de alerta
+}
+// Verificar si existe el parametro 'exito' en la URL para mostrar la alerta
+else if (urlParams.has('RegistroExitoso')) {
+    mostrarAlertaExito(); // Llamar a la función
+}
+// Verificar si existe el parametro 'errorRegistro' en la URL para mostrar la alerta
+else if (urlParams.has('errorRegistro')) {
+    mostrarAlertaErrorRegistro(); // Llamar a la función
+}

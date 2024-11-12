@@ -18,7 +18,7 @@
         <h2 class="text-center">Añadir o Eliminar Usuarios</h2>
         <p class="text-center text-muted">Completa el formulario para añadir o eliminar un usuario</p>
 
-        <form id="userForm" action="process_user.php" method="POST">
+        <form id="userForm" action="RegistrarUsuario.php" method="POST">
             <div class="form-group">
                 <label for="nombre">Nombre Completo:</label>
                 <input type="text" class="form-control w-100" id="nombre" name="nombre" placeholder="Ingresa el nombre completo del usuario" required>
@@ -30,12 +30,16 @@
             </div>
 
             <div class="form-group">
+                <label for="pass">Contraseña</label>
+                <input type="password" class="form-control w-100" id="pass" name="pass" placeholder="Ingresa la contraseña" required>
+            </div>
+
+            <div class="form-group">
                 <label for="rol">Rol del Usuario:</label>
                 <select class="form-control w-100" id="rol" name="rol" required>
                     <option value="">Selecciona el rol</option>
-                    <option value="repartidor">Repartidor</option>
-                    <option value="usuario">Usuario</option>
-                    <option value="administrador">Administrador</option>
+                    <option value="2">Repartidor</option>
+                    <option value="1">Administrador</option>
                 </select>
             </div>
 
