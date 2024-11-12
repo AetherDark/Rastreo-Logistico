@@ -1,8 +1,8 @@
 <?php
-$host = ''; // Cambia esto si tu servidor no está en localhost
+$host = 'localhost'; // Conexion a base de datos de manera local en MySQL
 $dbname = 'RastreoLogistico'; // Nombre de la base de datos
-$user = ''; // Tu nombre de usuario de MySQL
-$password = ''; // Tu contraseña de MySQL
+$user = 'root'; // Usuario para conectar a la base de datos
+$password = ''; // Contraseña del computador, cambiar dependiendo de quien la use
 
 // Crear conexión
 $conn = new mysqli($host, $user, $password, $dbname);
