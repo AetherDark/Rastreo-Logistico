@@ -14,12 +14,6 @@
         <div class="form-container sign-up-container">
             <form action="Registro.php" method="post"> <!-- Acción del formulario (por ahora vacía) -->
                 <h1>Crea tu cuenta</h1> <!-- Título del formulario -->
-                <div class="social-container"> <!-- Contenedor para iconos de redes sociales -->
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <!-- Enlace con icono de Facebook -->
-                    <a href="#" class="social"><i class="fab fa-github"></i></a> <!-- Enlace con icono de GitHub -->
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <!-- Enlace con icono de Google -->
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> <!-- Enlace con icono de LinkedIn -->
-                </div>
                 <span>Usa tu email para el registro</span> <!-- Descripción -->
                 <input type="text" name="nombreUsuario" placeholder="Usuario"> <!-- Campo de nombre -->
                 <input type="email" name="email" placeholder="Email"> <!-- Campo de email -->
@@ -32,16 +26,9 @@
         <div class="form-container sign-in-container">
             <form action="Login.php" method="post"> <!-- Acción del formulario -->
                 <h1>Inicia sesión</h1>
-                <div class="social-container"> <!-- Iconos de redes sociales para iniciar sesión -->
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <!-- Facebook -->
-                    <a href="#" class="social"><i class="fab fa-github"></i></a> <!-- GitHub -->
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <!-- Google -->
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> <!-- LinkedIn -->
-                </div>
                 <span>Usa la contraseña de tu email</span> <!-- Descripción --> 
                 <input type="email" name="email" placeholder="Email"> <!-- Campo de email -->
                 <input type="password" name="password" placeholder="Contraseña"> <!-- Campo de contraseña -->
-                <a href="recuperar_password.html">¿Olvidaste tu contraseña?</a> <!-- Enlace para recuperar contraseña -->
                 <button type="submit">Entrar</button> <!-- Botón de inicio de sesión -->
             </form>
         </div>
@@ -54,12 +41,14 @@
                     <h1>Bienvenido de vuelta :D</h1>
                     <p>Ingresa tu información para poder acceder a la plataforma</p>
                     <button class="hidden" id="login">Entrar</button>
+                    <button class="hidden" onclick="window.location.href='../Menu principal/Menu.html'">Regresar al inicio</button>
                 </div>
                 <!-- Panel derecho (para los nuevos usuarios) -->
                 <div class="toggle-panel toggle-right">
                     <h1>Regístrate</h1>
                     <p>Regístrate con tu información para poder acceder a la plataforma</p>
                     <button class="hidden" id="register">Regístrate</button>
+                    <button class="hidden" onclick="window.location.href='../Menu principal/Menu.html'">Regresar al inicio</button>
                 </div>
             </div>
         </div>

@@ -6,12 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST['email']);
     $password = $_POST['password'];
 
-    // Preparar las variables de salida
-    $id = null;
-    $nombreUsuario = null;
-    $rolID = null;
-    $nombreRol = null;
-
     // Preparar la llamada al procedimiento almacenado
     $stmt = $conn->prepare("CALL iniciarSesion(?, ?, @id, @nombreUsuario, @rolID, @nombreRol)");
 
