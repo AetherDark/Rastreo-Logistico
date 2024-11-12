@@ -59,7 +59,7 @@
 
         <div class="text-center">
             <button id="deleteUserButton" class="btn btn-danger" disabled>Eliminar Usuario</button>
-            <button id="backButton" class="btn btn-secondary">Regresar</button>
+            <button id="backButton" class="btn btn-danger" onclick="window.location.href='MenuAdmin.html'">Regresar al menu</button>
         </div>
     </div>
 
@@ -70,5 +70,58 @@
     <footer class="footer mt-5 text-center">
         <p>&copy; 2024 Trace & Track. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        // Realizar una solicitud a MostrarUsuarios.php
+        fetch('MostrarUsuarios.php')
+            .then(response => response.json())  // Convierte la respuesta a JSON
+            .then(data => {
+                console.log(data); // Imprime los datos en la consola para depuración
+    
+                // Obtener el contenedor de usuarios (tbody de la tabla)
+                const contenedor = document.getElementById('userTableBody');
+    
+                // Comprobar si 'data' es un array y tiene elementos
+                if (Array.isArray(data) && data.length > 0) {
+                    // Recorrer los datos y crear una fila por cada usuario
+                    data.forEach(user => {
+                        const row = document.createElement('tr');
+                        
+                        // Crear las celdas para cada campo del usuario
+                        const cellID = document.createElement('td');
+                        cellID.textContent = user.ID;
+    
+                        const cellName = document.createElement('td');
+                        cellName.textContent = user.NombreUsuario;
+    
+                        const cellEmail = document.createElement('td');
+                        cellEmail.textContent = user.Email;
+    
+                        const cellRole = document.createElement('td');
+                        cellRole.textContent = user.NombreRol;
+    
+                        // Añadir las celdas a la fila
+                        row.appendChild(cellID);
+                        row.appendChild(cellName);
+                        row.appendChild(cellEmail);
+                        row.appendChild(cellRole);
+    
+                        // Agregar la fila a la tabla
+                        contenedor.appendChild(row);
+                    });
+                } else {
+                    console.log("No hay usuarios para mostrar.");
+                    // Si no hay usuarios, mostrar un mensaje
+                    const row = document.createElement('tr');
+                    const cell = document.createElement('td');
+                    cell.colSpan = 4;
+                    cell.textContent = "No hay usuarios disponibles.";
+                    row.appendChild(cell);
+                    contenedor.appendChild(row);
+                }
+            })
+            .catch(error => console.error('Error al obtener los usuarios:', error));
+    </script>
+    
 </body>
 </html>

@@ -74,3 +74,15 @@ BEGIN
     END IF;
 END //
 DELIMITER ;
+
+--------------------------------------------------------------------------------------------------------------------------
+
+-- Procedimiento para la eliminacion de usuarios
+DELIMITER //
+
+CREATE PROCEDURE eliminarUsuario(IN userID INT)
+BEGIN
+    DELETE FROM Usuarios WHERE ID = userID;
+END //
+
+DELIMITER ;
