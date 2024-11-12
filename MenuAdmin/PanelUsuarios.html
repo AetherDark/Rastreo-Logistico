@@ -57,8 +57,13 @@
             </tbody>
         </table>
 
+        <div>
+            <label for="userID">ID del Usuario a eliminar</label>
+            <input type="number" class="form-control w-100" id="userID" name="userID" placeholder="Ingresa el ID del usuario" required>
+        </div>
+
         <div class="text-center">
-            <button id="deleteUserButton" class="btn btn-danger" disabled>Eliminar Usuario</button>
+            <button type id="deleteUserButton" class="btn btn-danger btn-block" onclick="deleteUser()">Eliminar Usuario</button>
             <button id="backButton" class="btn btn-danger" onclick="window.location.href='MenuAdmin.html'">Regresar al menu</button>
         </div>
     </div>
