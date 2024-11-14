@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Este parametro activa el js para la alerta de que se registro correctamente
         }
     } catch (Exception $e) {
-        header("Location: Registro.php?error=1" . urlencode($e->getMessage()));
+        header("Location: Sesion.html?error=1");
         exit();
         // Redirige al de regreso al menu de sesion con un parametro en la url de error para que de alerta
         // de que hubo un error al registrar la cuenta

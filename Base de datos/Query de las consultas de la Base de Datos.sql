@@ -1,5 +1,7 @@
 -- Procedimiento de Registro de Usuarios
 -- Verificación de la existencia de un usuario
+DELIMITER //
+
 CREATE TRIGGER verificarDuplicadosAntesDeInsertar
 BEFORE INSERT ON Usuarios
 FOR EACH ROW
@@ -24,9 +26,9 @@ CREATE PROCEDURE registrarUsuario(
     IN p_NombreRol VARCHAR(50)
 )
 BEGIN
-    -- Insertar nuevo usuario
-    INSERT INTO Usuarios (NombreUsuario, Email, PasswordHash, RolID, NombreRol, FechaCreacion)
-    VALUES (p_NombreUsuario, p_Email, p_PasswordHash, p_RolID, p_NombreRol, NOW());
+    -- Insertar nuevo usuario con EstadoCuentaID predeterminado
+    INSERT INTO Usuarios (NombreUsuario, Email, PasswordHash, RolID, NombreRol, EstadoCuenta, FechaCreacion)
+    VALUES (p_NombreUsuario, p_Email, p_PasswordHash, p_RolID, p_NombreRol, 'Activo', NOW());
 END//
 
 DELIMITER ;

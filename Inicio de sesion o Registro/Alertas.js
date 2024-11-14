@@ -1,6 +1,6 @@
 // Función para mostrar la usuario o contraseña no encontrado
 function mostrarAlertaError() {
-    alert('Correo o contraseña incorrectos');
+    alert('El correo o el usuario ya se encuentra registrado');
 }
 
 // Función para mostrar la alerta de usuario registrado
@@ -14,11 +14,11 @@ function mostrarAlertaToken() {
 }
 */
 
-/* Función para mostrar la alerta de correco no registrado
+// Función para mostrar la alerta de correco no registrado
 function mostrarAlertaNoRegistrado() {
-    alert('Correo electrónico no registrado');
+    alert('Usuario no registrado');
 }
-*/
+
 
 /* Función para mostrar la alerta de cambio de contraseña
 function mostrarAlertaCambioPass() {
@@ -51,10 +51,10 @@ else if (urlParams.has('registro')) {
 else if (urlParams.has('token')) {
     mostrarAlertaToken(); // Llamar a la función de alerta
 }*/
-/* Verificar si existe el parámetro 'no-registrado' en la URL para mostrar la alerta
+// Verificar si existe el parámetro 'no-registrado' en la URL para mostrar la alerta
 else if (urlParams.has('no-registrado')) {
     mostrarAlertaNoRegistrado(); // Llamar a la función de alerta
-}*/
+}
 /* Verificar si existe el parámetro 'Cambio-Pass' en la URL para mostrar la alerta
 else if (urlParams.has('Cambio-Pass')) {
     mostrarAlertaCambioPass(); // Llamar a la función de alerta
