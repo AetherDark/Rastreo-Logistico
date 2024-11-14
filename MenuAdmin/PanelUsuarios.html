@@ -15,6 +15,9 @@
         <h1 class="Logo text-center">
             <span class="trace">TRACE&</span><span class="Track">TRACK</span>
         </h1>
+        <div class="top-right">
+            Bienvenido, <span id="user-name-display">Cargando...</span> <!-- Nombre de usuario -->
+        </div>
     </header>
 
     <!-- Contenedor principal para el formulario y tabla de usuarios -->
@@ -67,6 +70,7 @@
                     <th>Nombre Usuario</th>
                     <th>Email</th>
                     <th>Rol</th>
+                    <th>Estado</th>
                 </tr>
             </thead>
             <!-- Cuerpo de la tabla donde se cargarán los usuarios -->
@@ -75,18 +79,23 @@
             </tbody>
         </table>
 
-        <!-- Campo para ingresar el ID del usuario a eliminar -->
+        <!-- Campo para cambiar el estado de cuenta del usuario -->
         <div>
-            <label for="userID">ID del Usuario a eliminar</label>
-            <input type="number" class="form-control w-100" id="userID" name="userID" placeholder="Ingresa el ID del usuario" required>
+            <label for="number">ID del Usuario</label>
+            <input type="number" class="form-control w-100" id="userID" name="userID" placeholder="Ingrese ID del usuario">
+    
+            <label for="estado">Cambiar Estado de Cuenta</label>
+            <select class="form-control w-100" id="estado" name="estado">
+                <option value="">Seleccione Estado</option>
+                <option value="Activo">Reactivar</option>
+                <option value="Suspendido">Suspender</option>
+            </select>
         </div>
 
-        <!-- Botones para eliminar el usuario y regresar al menú -->
+        <!-- Botón para actualizar el estado del usuario -->
         <div class="text-center">
-            <!-- Botón para eliminar un usuario -->
-            <button type="button" id="deleteUserButton" class="btn btn-danger btn-block" onclick="deleteUser()">Eliminar Usuario</button>
-            <!-- Botón para regresar al menú de administración -->
-            <button id="backButton" class="btn btn-danger" onclick="window.location.href='MenuAdmin.html'">Regresar al menu</button>
+            <button type="button" id="updateStateButton" class="btn btn-warning btn-block" onclick="updateUserState()">Actualizar Estado</button>
+            <button id="backButton" class="btn btn-danger" onclick="window.location.href='MenuAdmin.html'">Regresar al menú</button>
         </div>
     </div>
 
@@ -95,6 +104,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Enlace a los scripts personalizados -->
     <script src="scripts.js"></script>
+    <script src="userNameAdmin.js"></script>
+    <script src="updateEstado.js"></script>
 
     <!-- Pie de página con derechos de autor -->
     <footer class="footer mt-5 text-center">
@@ -130,12 +141,16 @@
     
                         const cellRole = document.createElement('td');
                         cellRole.textContent = user.NombreRol;
+
+                        const cellEstado = document.createElement('td');
+                        cellEstado.textContent = user.EstadoCuenta;
     
                         // Añadir las celdas a la fila
                         row.appendChild(cellID);
                         row.appendChild(cellName);
                         row.appendChild(cellEmail);
                         row.appendChild(cellRole);
+                        row.appendChild(cellEstado);
     
                         // Añadir la fila a la tabla
                         contenedor.appendChild(row);

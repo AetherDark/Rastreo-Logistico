@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             exit();
         } else {
-            echo "Contraseña incorrecta o usuario no encontrado.";
+            header("Location: Sesion.html?no-registrado=1");
         }
     } else {
         echo "Error al ejecutar el procedimiento: " . $stmt->error;

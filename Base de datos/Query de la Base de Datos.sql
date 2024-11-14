@@ -1,61 +1,64 @@
-create database RastreoLogistico;
+CREATE DATABASE RastreoLogistico;
 
-use RastreoLogistico;
+USE RastreoLogistico;
 
-create table Roles -- Definir los roles y permisos
+-- Tabla de Roles
+CREATE TABLE Roles 
 (
-    ID int not null,
-    Nombre varchar(50) not null,
-    Descripcion varchar(255),
-    primary key (ID,Nombre) -- Clave primaria compuesta
+    ID INT NOT NULL,
+    Nombre VARCHAR(50) NOT NULL,
+    Descripcion VARCHAR(255),
+    PRIMARY KEY (ID, Nombre) -- Clave primaria compuesta
 );
 
--- Insercion de roles
-insert into Roles (ID, Nombre, Descripcion) values
+-- Inserción de roles
+INSERT INTO Roles (ID, Nombre, Descripcion) VALUES
 (1, 'Admin', 'Rol de Administrador'),
 (2, 'Repartidor', 'Rol de Repartidor'),
 (3, 'Usuario', 'Rol de Usuario');
 
--- Para almacenar la información de cada usuario
-create table Usuarios
+-- Tabla Usuarios
+CREATE TABLE Usuarios
 (
-    ID int AUTO_INCREMENT PRIMARY KEY,
-    NombreUsuario varchar(100) not null unique,
-    Email varchar(100) not null unique,
-    PasswordHash varchar(255) not null,
-    RolID int, -- Solo se guarda el ID del rol
-    NombreRol varchar(50), -- Solo se guarda el Nombre del Rol
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    NombreUsuario VARCHAR(100) NOT NULL UNIQUE,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    PasswordHash VARCHAR(255) NOT NULL,
+    RolID INT, -- ID del rol
+    NombreRol VARCHAR(50), -- Nombre del rol
+    EstadoCuenta VARCHAR(50), -- Nombre del estado de la cuenta
     FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (RolID, NombreRol) REFERENCES Roles(ID, Nombre) -- Referencia solo a ID y Nombre
+    FOREIGN KEY (RolID, NombreRol) REFERENCES Roles(ID, Nombre)
 );
 
 -- Usuario de rol ADMIN
-INSERT INTO Usuarios (NombreUsuario, Email, PasswordHash, RolID, NombreRol)
-VALUES ('ADMIN', 'admin@gmail.com', '123456', 1, 'Admin');
+INSERT INTO Usuarios (NombreUsuario, Email, PasswordHash, RolID, NombreRol, EstadoCuentaID, EstadoCuenta)
+VALUES ('ADMIN', 'admin@gmail.com', '123456', 1, 'Admin', 1, 'Reactivar');
 
--- Gestión de pedidos y rastreo
-
-create table Pedidos -- Para registrar los pedidos
+-- Tabla de Pedidos
+CREATE TABLE Pedidos 
 (
-    ID int AUTO_INCREMENT primary key,
-    UsuarioID int,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    UsuarioID INT,
     FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
     Descripcion TEXT,
-    EstadoActual varchar(50) not null, -- Estado Actual del pedido
+    EstadoActual VARCHAR(50) NOT NULL, -- Estado Actual del pedido
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID)
-)
+);
 
-CREATE TABLE EstadosPedido -- Para almacenar los diferentes estados
+-- Tabla EstadosPedido
+CREATE TABLE EstadosPedido 
 (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     NombreEstado VARCHAR(50) NOT NULL -- Ej: 'En tránsito', 'Entregado', 'Perdido', 'Cancelado'
 );
 
-CREATE TABLE HistorialPedidos -- Para registrar los cambios de estado y quién los realizó
+-- Tabla HistorialPedidos
+CREATE TABLE HistorialPedidos 
 (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     PedidoID INT,
-    UsuarioID INT, -- Quien modificó el estado
+    UsuarioID INT, -- Usuario que modificó el estado
     EstadoID INT,
     FechaCambio DATETIME DEFAULT CURRENT_TIMESTAMP,
     Comentario TEXT,
