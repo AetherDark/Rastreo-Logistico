@@ -32,8 +32,8 @@ CREATE TABLE Usuarios
 );
 
 -- Usuario de rol ADMIN
-INSERT INTO Usuarios (NombreUsuario, Email, PasswordHash, RolID, NombreRol, EstadoCuentaID, EstadoCuenta)
-VALUES ('ADMIN', 'admin@gmail.com', '123456', 1, 'Admin', 1, 'Reactivar');
+INSERT INTO Usuarios (NombreUsuario, Email, PasswordHash, RolID, NombreRol, EstadoCuenta)
+VALUES ('ADMIN', 'admin@gmail.com', '123456', 1, 'Admin', 'Activo');
 
 -- Tabla de Pedidos
 CREATE TABLE Pedidos 

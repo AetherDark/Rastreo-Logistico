@@ -29,7 +29,7 @@ function deleteUser() {
 // Alertas de usuarios
 // Función para mostrar la usuario o contraseña no encontrado
 function mostrarAlertaError() {
-    alert('El correo ya existe o usuario ya existe');
+    alert('El correo o usuario ya existe');
 }
 
 // Función para mostrar la alerta de rol no válido

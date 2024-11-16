@@ -3,6 +3,14 @@ function mostrarAlertaError() {
     alert('El correo o el usuario ya se encuentra registrado');
 }
 
+function mostrarAlertaSuspension() {
+    alert('Usuario suspendido. Contacta al administrador');
+}
+
+// Función para mostrar la alerta de error de cuenta
+function mostrarAlertaErrorCuenta() {
+    alert('Error de cuenta. Contacta al administrador');
+}
 // Función para mostrar la alerta de usuario registrado
 function mostrarAlertaRegistro() {
     alert('Usuario registrado correctamente');
@@ -54,6 +62,14 @@ else if (urlParams.has('token')) {
 // Verificar si existe el parámetro 'no-registrado' en la URL para mostrar la alerta
 else if (urlParams.has('no-registrado')) {
     mostrarAlertaNoRegistrado(); // Llamar a la función de alerta
+}
+// Verificar si existe el parámetro 'Suspendido' en la URL para mostrar la alerta
+else if (urlParams.has('Suspendido')) {
+    mostrarAlertaSuspension(); // Llamar a la función de alerta
+}
+// Verificar si existe el parámetro 'ErrorCuenta' en la URL para mostrar la alerta
+else if (urlParams.has('ErrorCuenta')) {
+    mostrarAlertaErrorCuenta(); // Llamar a la función de alerta
 }
 /* Verificar si existe el parámetro 'Cambio-Pass' en la URL para mostrar la alerta
 else if (urlParams.has('Cambio-Pass')) {
