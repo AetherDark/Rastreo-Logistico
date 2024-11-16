@@ -38,11 +38,13 @@ VALUES ('ADMIN', 'admin@gmail.com', '123456', 1, 'Admin', 'Activo');
 -- Tabla de Pedidos
 CREATE TABLE Pedidos 
 (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    UsuarioID INT,
-    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-    Descripcion TEXT,
+    ID INT AUTO_INCREMENT PRIMARY KEY, -- ID del pedido
+    UsuarioID INT, -- Remitente del que envia
+    Destinatario VARCHAR(50), -- Nombre del destinatario
+    DireccionDestino VARCHAR(255), -- Dirección de destino
+    Descripcion TEXT, -- Descripcion del pedido a enviar
     EstadoActual VARCHAR(50) NOT NULL, -- Estado Actual del pedido
+    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID)
 );
 
