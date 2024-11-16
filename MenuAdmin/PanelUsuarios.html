@@ -8,17 +8,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Enlace a los estilos personalizados para el menú de administración -->
     <link rel="stylesheet" href="MenuAdmin.css">
+    <script src="../Inicio de sesion o Registro/Burbuja.js" ></script>
+    <script src="../Inicio de sesion o Registro/auth.js" ></script>
 </head>
 <body>
-    <!-- Encabezado de la página con el logo -->
-    <header class="header">
-        <h1 class="Logo text-center">
-            <span class="trace">TRACE&</span><span class="Track">TRACK</span>
-        </h1>
-        <div class="top-right">
-            Bienvenido, <span id="user-name-display">Cargando...</span> <!-- Nombre de usuario -->
-        </div>
-    </header>
+
+<!-- Encabezado de la página con el logo -->
+<header class="header d-flex justify-content-between align-items-center p-3">
+    <h1 class="Logo text-center">
+        <span class="trace">TRACE&</span><span class="Track">TRACK</span>
+    </h1>
+</header>
+
 
     <!-- Contenedor principal para el formulario y tabla de usuarios -->
     <div class="container-fluid mt-5">
@@ -31,9 +32,8 @@
             <!-- Campo para ingresar el nombre completo del usuario -->
             <div class="form-group">
                 <label for="nombre">Nombre Completo:</label>
-                <input type="text" class="form-control w-100" id="nombre" name="nombre" placeholder="Ingresa el nombre completo del usuario" required>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el nombre completo del usuario" required>
             </div>
-
             <!-- Campo para ingresar el correo electrónico del usuario -->
             <div class="form-group">
                 <label for="email">Correo Electrónico:</label>
@@ -61,23 +61,28 @@
         </form>
 
         <!-- Sección para mostrar la lista de usuarios existentes -->
-        <h3 class="mt-5">Usuarios Existentes</h3>
-        <table class="table table-striped">
-            <!-- Encabezado de la tabla -->
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre Usuario</th>
-                    <th>Email</th>
-                    <th>Rol</th>
-                    <th>Estado</th>
-                </tr>
-            </thead>
-            <!-- Cuerpo de la tabla donde se cargarán los usuarios -->
+<!-- Sección para mostrar la lista de usuarios existentes -->
+<h3 class="mt-5">Usuarios Existentes</h3>
+
+<!-- Contenedor para Usuarios existentes --> 
+    <div class="table-responsive">
+       <table class="table table-striped">
+        <!-- Encabezado de la tabla -->
+         <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre Usuario</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <!-- Cuerpo de la tabla donde se cargarán los usuarios -->
             <tbody id="userTableBody">
-                <!-- Aquí se llenarán los datos de los usuarios con JavaScript -->
+            <!-- Aquí se llenarán los datos de los usuarios con JavaScript -->
             </tbody>
         </table>
+       </div>
 
         <!-- Campo para cambiar el estado de cuenta del usuario -->
         <div>
@@ -106,6 +111,11 @@
     <script src="scripts.js"></script>
     <script src="userNameAdmin.js"></script>
     <script src="updateEstado.js"></script>
+
+    <!-- Burbuja de saludo flotante -->
+<div id="saludoBubble" class="saludo-bubble">
+    ¡Hola! Bienvenido <span id="user-name-display">Cargando...</span>
+</div>
 
     <!-- Pie de página con derechos de autor -->
     <footer class="footer mt-5 text-center">
