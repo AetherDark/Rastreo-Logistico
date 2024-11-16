@@ -6,6 +6,8 @@
     <title>Trace & Track - Repartidor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="MenuRepartidor.css">
+    <script src="Funcionalidades.js" ></script>
+    <script src="../Inicio de sesion o Registro/Burbuja.js" ></script>
 </head>
 <body>
 
@@ -13,11 +15,12 @@
         <h1 class="Logo">
             <span class="trace">TRACE&</span><span class="Track">TRACK</span>
         </h1>
-        <div class="top-right">
-            Bienvenido, <span id="user-name-display">Cargando...</span> <!-- Nombre de usuario -->
-        </div>
     </header>
-
+ <!-- Burbuja de saludo flotante -->
+ <div id="saludoBubble" class="saludo-bubble">
+    ¡Hola! Bienvenido <br>
+    <span id="user-name-display">Cargando...</span>
+</div>
     <div class="content">
         <div class="container d-flex flex-column align-items-center">
             <div class="row justify-content-center">

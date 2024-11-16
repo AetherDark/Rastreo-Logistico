@@ -156,3 +156,40 @@ body {
     font-size: 1.2em;
     color: #ffffff;
 }
+/* Estilo para la burbuja de saludo flotante */
+.saludo-bubble {
+    position: fixed; /* Fija la burbuja para que no se desplace con el contenido */
+    bottom: 20px; /* Distancia desde el borde inferior */
+    right: 20px; /* Distancia desde el borde derecho */
+    background-color: #b299d7; /* Color de fondo */
+    color: white; /* Color de texto */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 20px; /* Hace la burbuja ovalada */
+    font-size: 16px; /* Tamaño del texto principal */
+    font-weight: bold; /* Peso del texto */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras suaves */
+    cursor: pointer; /* Muestra el cursor de interacción */
+    transition: opacity 0.3s ease; /* Suaviza la aparición/desaparición */
+    max-width: 200px; /* Limita el ancho */
+    line-height: 1.2; /* Espaciado entre líneas */
+    word-wrap: break-word; /* Permite que el texto se ajuste */
+    z-index: 9999; /* Superpone la burbuja sobre todo */
+}
+
+
+
+
+
+/* Mostrar la burbuja */
+.saludo-bubble.show {
+    opacity: 1;
+}
+
+/* Para el texto de usuario */
+#user-name-display {
+    display: block;  /* Asegura que "Cargando..." esté debajo del mensaje */
+    font-weight: normal;
+    font-size: 12px;
+    margin-top: 5px; /* Separación entre "Bienvenido" y "Cargando..." */
+}
