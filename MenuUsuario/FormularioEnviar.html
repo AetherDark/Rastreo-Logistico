@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Formulario de Envío</title>
+
+<link rel="stylesheet" href="FormularioEnviar.css">
+
+<!-- Enlace a Font Awesome para usar los íconos -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<!-- <script src="../Inicio de sesion o Registro/auth.js"></script>-->
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>TRACE & TRACK</h1>
+
+<p class="slogan">Tu envío, nuestra prioridad</p>
+
+</div>
+
+<div class="content">
+
+<form id="envioForm" class="envio-form" method="POST" action="FormularioPedido.php">
+
+<div class="form-group">
+
+<label for="nombre">Nombre Completo del Destinatario:</label>
+
+<input type="text" id="nombre" name="nombre" required placeholder="Nombre completo">
+
+</div>
+
+<div class="form-group">
+
+<label for="direccion">Dirección de Envío:</label>
+
+<textarea id="direccion" name="direccion" rows="3" required placeholder="Dirección completa"></textarea>
+
+</div>
+
+<div class="form-group">
+
+    <label for="direccion">Descripcion de envio:</label>
+    
+    <textarea id="Descripcion" name="Descripcion" rows="4" required placeholder="Describe lo ue vas a enviar"></textarea>
+    
+</div>
+
+<div class="form-group-Btn">
+
+<button type="submit" class="btn">Enviar</button>
+<button class="btn" onclick="window.location.href='MenuUsuario.html'">Regresar</button>
+
+</div>
+
+</form>
+
+</div>
+
+<footer class="footer">
+
+<div class="footer-links">
+
+<a href="#">Sobre nosotros</a>
+
+<a href="#">Contáctanos</a>
+
+<a href="#">Política de privacidad</a>
+
+<a href="#">Términos de servicio</a>
+
+</div>
+
+<p>Trace & Track &copy; 2024</p>
+
+</footer>
+
+</body>
+
+</html>
