@@ -16,11 +16,10 @@ function mostrarAlertaRegistro() {
     alert('Usuario registrado correctamente');
 }
 
-/* Función para mostrar la alerta de token enviado
-function mostrarAlertaToken() {
-    alert('Token enviado a tu correo electrónico');
+// Función para mostrar la alerta de error de autenticacion
+function mostrarAlertaAuto() {
+    alert('Error en la autenticacion. Contacta al administrador');
 }
-*/
 
 // Función para mostrar la alerta de correco no registrado
 function mostrarAlertaNoRegistrado() {
@@ -28,11 +27,10 @@ function mostrarAlertaNoRegistrado() {
 }
 
 
-/* Función para mostrar la alerta de cambio de contraseña
-function mostrarAlertaCambioPass() {
-    alert('Contraseña cambiada correctamente');
+// Función para mostrar la alerta de cambio de contraseña
+function mostrarAlertaErrorAuto() {
+    alert('Error en la autenticacion. Contacta al administrador');
 }
-*/
 
 /* Función para mostrar la alerta de error de cambio de contraseña
 function mostrarAlertaErrorCambioPass() {
@@ -55,10 +53,10 @@ if (urlParams.has('error')) {
 else if (urlParams.has('registro')) {
     mostrarAlertaRegistro(); // Llamar a la función de alerta
 }
-/* Verificar si existe el parámetro 'token' en la URL para mostrar la alerta
-else if (urlParams.has('token')) {
-    mostrarAlertaToken(); // Llamar a la función de alerta
-}*/
+// Verificar si existe el parámetro 'token' en la URL para mostrar la alerta
+else if (urlParams.has('Auto')) {
+    mostrarAlertaAuto(); // Llamar a la función de alerta
+}
 // Verificar si existe el parámetro 'no-registrado' en la URL para mostrar la alerta
 else if (urlParams.has('no-registrado')) {
     mostrarAlertaNoRegistrado(); // Llamar a la función de alerta
@@ -71,10 +69,10 @@ else if (urlParams.has('Suspendido')) {
 else if (urlParams.has('ErrorCuenta')) {
     mostrarAlertaErrorCuenta(); // Llamar a la función de alerta
 }
-/* Verificar si existe el parámetro 'Cambio-Pass' en la URL para mostrar la alerta
-else if (urlParams.has('Cambio-Pass')) {
-    mostrarAlertaCambioPass(); // Llamar a la función de alerta
-}*/
+// Verificar si existe el parámetro 'ErrorAuto' en la URL para mostrar la alerta
+else if (urlParams.has('ErrorAuto')) {
+    mostrarAlertaErrorAuto(); // Llamar a la función de alerta
+}
 /* Verificar si existe el parámetro 'Error-Cambio-Pass' en la URL para mostrar la alerta
 else if (urlParams.has('Error-Cambio-Pass')) {
     mostrarAlertaErrorCambioPass(); // Llamar a la función de alerta
