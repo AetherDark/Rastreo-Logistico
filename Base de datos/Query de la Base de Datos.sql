@@ -47,3 +47,12 @@ CREATE TABLE Pedidos
     FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID)
 );
+
+-- Tabla de pedidos a recibir
+CREATE TABLE pedidosRecibir
+(
+    ID INT AUTO_INCREMENT PRIMARY KEY, -- ID del pedido
+    UsuarioID INT, -- ID del que recibira el pedido
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID),
+    FOREIGN KEY (ID) REFERENCES Pedidos(ID)
+);

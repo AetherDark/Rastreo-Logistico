@@ -33,9 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Ejecuta la consulta y verifica si fue exitosa
     if ($stmt->execute()) {
         // Redirigir o mostrar mensaje
-        header("Location: ../MenuUsuario/MenuUsuario.html?Enviado=1");
+        header("Location: ../MenuUsuario/FormularioEnviar.html?Enviado=1");
     } else {
-        header("Location: ../MenuUsuario/MenuUsuario.html?NoEnviado=1");
+        header("Location: ../MenuUsuario/FormularioEnviar.html?NoEnviado=1");
     }
 
     // Cierra la conexión
