@@ -43,28 +43,16 @@ CREATE TABLE Pedidos
     Destinatario VARCHAR(50), -- Nombre del destinatario
     DireccionDestino VARCHAR(255), -- Dirección de destino
     Descripcion TEXT, -- Descripcion del pedido a enviar
-    EstadoActual VARCHAR(50) NOT NULL, -- Estado Actual del pedido
+    EstadoActual VARCHAR(50) NOT NULL, -- Estado Actual del pedido (Paquete en proceso, paquete enviado, en transito, entregado)
     FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID)
 );
 
--- Tabla EstadosPedido
-CREATE TABLE EstadosPedido 
+-- Tabla de pedidos a recibir
+CREATE TABLE pedidosRecibir
 (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    NombreEstado VARCHAR(50) NOT NULL -- Ej: 'En tránsito', 'Entregado', 'Perdido', 'Cancelado'
-);
-
--- Tabla HistorialPedidos
-CREATE TABLE HistorialPedidos 
-(
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    PedidoID INT,
-    UsuarioID INT, -- Usuario que modificó el estado
-    EstadoID INT,
-    FechaCambio DATETIME DEFAULT CURRENT_TIMESTAMP,
-    Comentario TEXT,
-    FOREIGN KEY (PedidoID) REFERENCES Pedidos(ID),
+    ID INT AUTO_INCREMENT PRIMARY KEY, -- ID del pedido
+    UsuarioID INT, -- ID del que recibira el pedido
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID),
-    FOREIGN KEY (EstadoID) REFERENCES EstadosPedido(ID)
+    FOREIGN KEY (ID) REFERENCES Pedidos(ID)
 );
