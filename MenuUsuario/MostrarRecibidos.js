@@ -1,3 +1,6 @@
+// Variable para almacenar el ID del pedido seleccionado
+let pedidoSeleccionado = null;
+
 // Realizar una solicitud para obtener los usuarios desde el servidor
 fetch('MostrarRecibidos.php', { method: 'POST' })  // Realizar una solicitud POST a 'MostrarUsuarios.php'
 .then(response => response.json())  // Convierte la respuesta en formato JSON
@@ -6,6 +9,10 @@ fetch('MostrarRecibidos.php', { method: 'POST' })  // Realizar una solicitud POS
 
     // Obtener el contenedor donde se insertarán los usuarios en la tabla
     const contenedor = document.getElementById('reciboTableBody');
+    const botonVerEstado = document.getElementById('verEstado'); // Obtener el botón aquí
+
+    // Deshabilitar el botón inicialmente
+    botonVerEstado.disabled = true;
 
     // Verificar que 'data' es un array y contiene usuarios
     if (Array.isArray(data) && data.length > 0) {
@@ -28,6 +35,22 @@ fetch('MostrarRecibidos.php', { method: 'POST' })  // Realizar una solicitud POS
             row.appendChild(cellDescripcion);
             row.appendChild(cellNombreUsuario);
 
+            // Agregar evento para seleccionar la fila
+            row.addEventListener('click', () => {
+                // Quitar la clase de selección de cualquier fila previamente seleccionada
+                document.querySelectorAll('tr').forEach(tr => tr.classList.remove('table-primary'));
+
+                // Resaltar la fila seleccionada
+                row.classList.add('table-primary');
+
+                // Guardar el ID del pedido seleccionado
+                pedidoSeleccionado = recibo.ID;
+                console.log("Pedido seleccionado:", pedidoSeleccionado);
+
+                // Habilitar el botón
+                botonVerEstado.disabled = false;
+            });
+
             // Añadir la fila a la tabla
             contenedor.appendChild(row);
         });
@@ -43,3 +66,17 @@ fetch('MostrarRecibidos.php', { method: 'POST' })  // Realizar una solicitud POS
     }
 })
 .catch(error => console.error('Error al obtener los usuarios:', error)); // Manejo de errores si la solicitud falla
+
+// Función para manejar el botón "Ver Estado"
+document.addEventListener('DOMContentLoaded', () => {
+    const botonVerEstado = document.getElementById('verEstado'); // Obtener el botón aquí
+
+    botonVerEstado.addEventListener('click', () => {
+        if (pedidoSeleccionado) {
+            // Redirigir al HTML con el ID del pedido en la URL
+            window.location.href = `../Rastreo/RastreoSesion.html?id=${pedidoSeleccionado}`;
+        } else {
+            alert("Por favor, selecciona un pedido primero.");
+        }
+    });
+});

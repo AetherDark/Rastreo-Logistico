@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Envío</title>
+    <link rel="stylesheet" href="paquete.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="Progress.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>TRACE & TRACK</h1>
+        <p class="slogan">Tu envío, nuestra prioridad</p>
+    </div>
+
+    <div class="content">
+        <h2>Seguimiento de Envío</h2>
+
+        <!-- Barra de progreso -->
+        <div class="progress-container">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" id="progressBar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    <i class="fa-solid fa-truck-fast progress-icon"></i> <!-- Ícono dentro de la barra -->
+                </div>
+            </div>
+            <div class="progress-steps">
+                <div class="progress-step active">
+                    Paquete en proceso
+                </div>
+                <div class="progress-step">
+                    Paquete enviado
+                </div>
+                <div class="progress-step">
+                    En tránsito
+                </div>
+                <div class="progress-step">
+                    Entregado
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón de regresar -->
+        <div class="regresar-btn-container">
+            <button class="btn-regresar" onclick="window.location.href='../MenuUsuario/Rastrear.html'">Regresar</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Sobre nosotros</a>
+            <a href="#">Contáctanos</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos de servicio</a>
+        </div>
+        <p>Trace & Track &copy; 2024</p>
+    </footer>
+</body>
+</html>
