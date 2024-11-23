@@ -26,17 +26,17 @@ async function checkAuth() {
         const data = await response.json();
 
         if (data.status && data.status !== "Repartidor") {
-            window.location.href = "../Inicio de sesion o Registro/Sesion.html?Auto=1";
+            window.location.href = "../InicioDeSesionORegistro/Sesion.html?Auto=1";
         } else if (data.status && data.status === "Repartidor") {
             console.log("Rol Correcto.");
         } else {
             console.error("Error al verificar el estado de la cuenta:", data.message);
-            window.location.href = "../Inicio de sesion o Registro/Sesion.html?ErrorAuto=1";
+            window.location.href = "../InicioDeSesionORegistro/Sesion.html?ErrorAuto=1";
         }            
     } catch (error) {
         console.error("Error en la verificación de la cuenta:", error);
         // Redirigir al login en caso de error en la comunicación
-        window.location.href = "../Inicio de sesion o Registro/Sesion.html";
+        window.location.href = "../InicioDeSesionORegistro/Sesion.html";
     }
 }
 

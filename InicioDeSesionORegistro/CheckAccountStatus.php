@@ -1,6 +1,6 @@
 <?php
 // CheckAccountStatus.php
-include '../Base de datos/DataBase.php'; // Incluir el archivo de conexión
+include '../BaseDeDatos/DataBase.php'; // Incluir el archivo de conexión
 
 header('Content-Type: application/json');
 

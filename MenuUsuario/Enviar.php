@@ -1,6 +1,6 @@
 <?php
 // FormularioPedido.php
-include '../Base de datos/DataBase.php'; // Conexión a la base de datos
+include '../BaseDeDatos/DataBase.php'; // Conexión a la base de datos
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Inicia la sesión y verifica que exista la cookie del usuario

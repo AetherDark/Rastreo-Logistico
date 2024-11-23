@@ -2,7 +2,7 @@
 // RegistrarUsuario.php
 
 // Incluir la conexión a la base de datos
-include '../Base de datos/DataBase.php';
+include '../BaseDeDatos/DataBase.php';
 
 // Verificar que la solicitud sea de tipo POST y que los campos requeridos estén presentes
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'], $_POST['email'], $_POST['rol'], $_POST['pass'])) {

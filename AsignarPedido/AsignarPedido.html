@@ -6,11 +6,11 @@
     <title>Rastrear Envío</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="MenuUsuario.css">
+    <link rel="stylesheet" href="AsignarPedido.css">
     <script src="../InicioDeSesionORegistro/auth.js"></script>
-    <script src="userNameUsuario.js"></script>
-    <script src="MostrarEnviados.js"></script>
-    <script src="MostrarRecibidos.js"></script>
+    <script src="userNameAdmin.js"></script>
+    <script src="MostrarPendientes.js"></script>
+    <script src="../MenuAdmin/Rol.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -24,52 +24,28 @@
     </nav>
 
     <main class="container text-center">
-        <h2 class="mb-4">Paquetes enviados</h2>
+        <h2 class="mb-4">Asignar Pedidos</h2>
         <table class="table table-striped">
             <!-- Encabezado de la tabla -->
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Descripcion</th>
-                    <th>Destinatario</th>
-                </tr>
-            </thead>
-            <!-- Cuerpo de la tabla donde se cargarán los usuarios -->
-            <tbody id="envioTableBody">
-                <!-- Aquí se llenarán los datos de los usuarios con JavaScript -->
-            </tbody>
-        </table>
-        <h2 class="mb-4">Paquetes a recibir</h2>
-        <table class="table table-striped">
-            <!-- Encabezado de la tabla -->
-            <thead>
-                <tr>
-                    <th>ID Pedido</th>
-                    <th>Descripcion</th>
                     <th>Remitente</th>
+                    <th>Destinatario</th>
+                    <th>Descripcion</th>
                 </tr>
             </thead>
             <!-- Cuerpo de la tabla donde se cargarán los usuarios -->
-            <tbody id="reciboTableBody">
+            <tbody id="asignarTableBody">
                 <!-- Aquí se llenarán los datos de los usuarios con JavaScript -->
             </tbody>
         </table>
-
-        <form action="AddPaqRecibir.php" method="post" id="getPedidos">
-            <div>
-                <label for="number">ID del Pedido</label>
-                <input type="number" class="form-control w-100" id="pedidoID" name="pedidoID" placeholder="Ingrese ID del pedido">
-            </div>
-            <button type="submit" class="btn btn-success mt-2" value="add">Rastrear</button>
-        </form>
 
         <div class="search-bar">
-            <button id="verEstado" class="btn btn-success mt-2" disabled>Ver Estado</button>
-            <button class="btn btn-success mt-2" onclick="window.location.href='MenuUsuario.html'">Regresar</button>
+            <button id="Asignar" class="btn btn-success mt-2" disabled>Asignar pedido</button>
+            <button class="btn btn-success mt-2" onclick="window.location.href='../MenuAdmin/MenuAdmin.html'">Regresar</button>
         </div>
     </main>
-
-    <script src="script.js"></script>
 
     <!-- Burbuja de saludo flotante -->
     <div id="saludoBubble" class="saludo-bubble">

@@ -1,6 +1,6 @@
 <?php
 // Incluir la conexión a la base de datos
-include '../Base de datos/DataBase.php';
+include '../BaseDeDatos/DataBase.php';
 
 // Leer la solicitud JSON
 $data = json_decode(file_get_contents("php://input"), true);
