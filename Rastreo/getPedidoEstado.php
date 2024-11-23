@@ -1,6 +1,6 @@
 <?php
 // getPedidoEstado.php
-include '../Base de datos/DataBase.php';
+include '../BaseDeDatos/DataBase.php';
 
 // Obtener la entrada JSON desde el frontend
 $data = json_decode(file_get_contents('php://input'), true);

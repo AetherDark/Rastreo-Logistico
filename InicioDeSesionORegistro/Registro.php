@@ -1,5 +1,5 @@
 <?php
-include '../Base de datos/DataBase.php'; // Se manda a llamar la conexion de la base de datos sin tener que escribirla de nuevo
+include '../BaseDeDatos/DataBase.php'; // Se manda a llamar la conexion de la base de datos sin tener que escribirla de nuevo
 
 // Asignacion de variables (parametros del formulario)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
