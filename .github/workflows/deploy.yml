@@ -1,0 +1,25 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: <IP-PUBLICA>
+        username: ubuntu
+        key: ${{ secrets.AWS_SSH_KEY }}
+        script: |
+          cd /var/www/html/Rastreo-Logistico
+          git pull
+          sudo systemctl restart apache2
