@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost'; // Conexion a base de datos de manera local en MySQL
-$dbname = 'RastreoLogistico'; // Nombre de la base de datos
-$user = 'root'; // Usuario para conectar a la base de datos
-$password = '22170143'; // Contraseña del computador, cambiar dependiendo de quien la use
+$host = 'b0aksj8vnbgrjqf1hnl6-mysql.services.clever-cloud.com'; // Conexion a base de datos de manera local en MySQL
+$dbname = 'b0aksj8vnbgrjqf1hnl6'; // Nombre de la base de datos
+$user = 'udyqkxeukqobm1ci'; // Usuario para conectar a la base de datos
+$password = 'Ro5jIojLNbBuTQoiMWfx'; // Contraseña del computador, cambiar dependiendo de quien la use
 
 // Crear conexión
 $conn = new mysqli($host, $user, $password, $dbname);
