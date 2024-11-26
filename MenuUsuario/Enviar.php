@@ -21,27 +21,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Error: Todos los campos son obligatorios.");
     }
 
+    // Generar un ID aleatorio de 10 dígitos
+    do {
+        $pedidoID = mt_rand(1000000000, 9999999999);
+        $result = $conn->query("SELECT 1 FROM Pedidos WHERE ID = $pedidoID");
+    } while ($result && $result->num_rows > 0);
+    
     // Valor predeterminado del estado del pedido
     $estadoActual = "Paquete en proceso";
 
     // Prepara la consulta SQL para insertar el pedido
     $stmt = $conn->prepare(
-        "INSERT INTO Pedidos (UsuarioID, Destinatario, DireccionDestino, Descripcion, EstadoActual) VALUES (?, ?, ?, ?, ?)"
+        "INSERT INTO Pedidos (ID, UsuarioID, Destinatario, DireccionDestino, Descripcion, EstadoActual) VALUES (?, ?, ?, ?, ?, ?)"
     );
-    $stmt->bind_param("issss", $usuarioID, $destinatario, $direccionDestino, $descripcion, $estadoActual);
+    $stmt->bind_param("iissss",$pedidoID, $usuarioID, $destinatario, $direccionDestino, $descripcion, $estadoActual);
 
     // Ejecuta la consulta y verifica si fue exitosa
     if ($stmt->execute()) {
         // Redirigir o mostrar mensaje
-        header("Location: ../MenuUsuario/FormularioEnviar.html?Enviado=1");
+        header("Location: FormularioEnviar.html?Enviado=1");
     } else {
-        header("Location: ../MenuUsuario/FormularioEnviar.html?NoEnviado=1");
+        header("Location: FormularioEnviar.html?NoEnviado=1");
     }
 
     // Cierra la conexión
     $stmt->close();
     $conn->close();
 } else {
-    echo "Método no permitido.";
+    header("Location: FormularioEnviar.html?NoEnviado=1");
 }
 ?>
