@@ -56,3 +56,12 @@ CREATE TABLE pedidosRecibir
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID),
     FOREIGN KEY (ID) REFERENCES Pedidos(ID)
 );
+
+-- Tabla para asignar pedidos a repartidores
+CREATE TABLE Asignaciones
+(
+    ID INT AUTO_INCREMENT PRIMARY KEY, -- ID de la asignacion
+    PedidoID INT, -- ID del pedido
+    FOREIGN KEY (ID) REFERENCES Usuarios(ID),
+    FOREIGN KEY (PedidoID) REFERENCES Pedidos(ID)
+);
