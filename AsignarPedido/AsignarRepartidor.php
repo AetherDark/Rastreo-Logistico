@@ -10,6 +10,14 @@ $data = json_decode(file_get_contents('php://input'), true);
 $pedidoID = $data['pedidoID'] ?? null;
 $repartidorID = $data['repartidorID'] ?? null;
 
+// Consulta para obtener el IDUsuario usando el ID almacenado en la cookie
+$stmtUsuario = $conn->prepare("SELECT IDUsuario FROM Usuarios WHERE ID = ?");
+$stmtUsuario->bind_param("i", $repartidorID); // Usamos el valor de la cookie para la consulta
+$stmtUsuario->execute();
+$stmtUsuario->bind_result($idRepartidor); // Vincular el resultado a la variable $idUsuario
+$stmtUsuario->fetch();
+$stmtUsuario->close();
+
 if (!$pedidoID || !$repartidorID) {
     echo json_encode(['success' => false, 'error' => 'Datos incompletos.']);
     exit;
@@ -21,7 +29,7 @@ try {
 
     // Insertar la asignación en la tabla correspondiente
     $stmt = $conn->prepare("INSERT INTO Asignaciones (ID, PedidoID) VALUES (?, ?)");
-    $stmt->bind_param('ii', $repartidorID, $pedidoID);
+    $stmt->bind_param('ii', $idRepartidor, $pedidoID);
 
     if (!$stmt->execute()) {
         throw new Exception("Error al asignar repartidor: " . $stmt->error);
