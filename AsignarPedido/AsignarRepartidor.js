@@ -3,26 +3,29 @@ function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
+    return null; // Retorna null si la cookie no existe
 }
 
-const pedidoID = getCookie('pedidoSeleccionado'); // Obtener el ID del pedido desde la cookie
+// Obtener el ID del pedido desde la cookie
+const pedidoID = getCookie('pedidoSeleccionado');
 console.log("Pedido seleccionado desde la cookie:", pedidoID);
 
 // Variable para almacenar el ID del repartidor seleccionado
 let repartidorSeleccionado = null;
 
-// Obtener la tabla y el botón
+// Obtener referencias a la tabla y al botón
 const tablaRepartidores = document.getElementById('repartidorTableBody');
 const botonAsignarRepartidor = document.getElementById('AsignarRepartidor');
 
 // Deshabilitar el botón inicialmente
 botonAsignarRepartidor.disabled = true;
 
-// Simular carga de repartidores (puedes reemplazar esto con una solicitud fetch)
-fetch('MostrarRepartidores.php') // Reemplaza con tu endpoint PHP para listar repartidores
+// Cargar repartidores desde el servidor
+fetch('MostrarRepartidores.php') // Endpoint PHP para listar repartidores
     .then(response => response.json())
     .then(data => {
         if (Array.isArray(data) && data.length > 0) {
+            // Poblar la tabla con repartidores
             data.forEach(repartidor => {
                 const row = document.createElement('tr');
 
@@ -43,8 +46,9 @@ fetch('MostrarRepartidores.php') // Reemplaza con tu endpoint PHP para listar re
                 row.appendChild(cellEmail);
                 row.appendChild(cellEstadoCuenta);
 
+                // Evento para seleccionar el repartidor
                 row.addEventListener('click', () => {
-                    // Resaltar fila seleccionada
+                    // Resaltar la fila seleccionada
                     document.querySelectorAll('tr').forEach(tr => tr.classList.remove('table-primary'));
                     row.classList.add('table-primary');
 
@@ -52,13 +56,14 @@ fetch('MostrarRepartidores.php') // Reemplaza con tu endpoint PHP para listar re
                     repartidorSeleccionado = repartidor.ID;
                     console.log("Repartidor seleccionado:", repartidorSeleccionado);
 
-                    // Habilitar el botón
+                    // Habilitar el botón de asignar
                     botonAsignarRepartidor.disabled = false;
                 });
 
                 tablaRepartidores.appendChild(row);
             });
         } else {
+            // Mostrar mensaje si no hay repartidores
             const row = document.createElement('tr');
             const cell = document.createElement('td');
             cell.colSpan = 4;
@@ -66,9 +71,18 @@ fetch('MostrarRepartidores.php') // Reemplaza con tu endpoint PHP para listar re
             row.appendChild(cell);
             tablaRepartidores.appendChild(row);
         }
+    })
+    .catch(error => {
+        console.error("Error al cargar repartidores:", error);
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+        cell.colSpan = 4;
+        cell.textContent = "Error al cargar repartidores.";
+        row.appendChild(cell);
+        tablaRepartidores.appendChild(row);
     });
 
-// Asignar el pedido al repartidor
+// Asignar el pedido al repartidor seleccionado
 botonAsignarRepartidor.addEventListener('click', () => {
     if (pedidoID && repartidorSeleccionado) {
         fetch('AsignarRepartidor.php', {
@@ -82,7 +96,7 @@ botonAsignarRepartidor.addEventListener('click', () => {
                     alert('Pedido asignado correctamente.');
                     window.location.href = 'AsignarPedido.html';
                 } else {
-                    alert('Error al asignar el pedido.');
+                    alert(`Error al asignar el pedido: ${data.error || 'Error desconocido'}`);
                 }
             })
             .catch(error => console.error('Error al asignar el pedido:', error));

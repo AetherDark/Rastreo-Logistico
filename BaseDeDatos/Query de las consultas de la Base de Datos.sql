@@ -19,6 +19,7 @@ DELIMITER ;
 DELIMITER //
 
 CREATE PROCEDURE registrarUsuario(
+	IN p_ID BIGINT,
     IN p_NombreUsuario VARCHAR(100),
     IN p_Email VARCHAR(100),
     IN p_PasswordHash VARCHAR(255),
@@ -27,8 +28,8 @@ CREATE PROCEDURE registrarUsuario(
 )
 BEGIN
     -- Insertar nuevo usuario con EstadoCuentaID predeterminado
-    INSERT INTO Usuarios (NombreUsuario, Email, PasswordHash, RolID, NombreRol, EstadoCuenta, FechaCreacion)
-    VALUES (p_NombreUsuario, p_Email, p_PasswordHash, p_RolID, p_NombreRol, 'Activo', NOW());
+    INSERT INTO Usuarios (ID, NombreUsuario, Email, PasswordHash, RolID, NombreRol, EstadoCuenta, FechaCreacion)
+    VALUES (p_ID, p_NombreUsuario, p_Email, p_PasswordHash, p_RolID, p_NombreRol, 'Activo', NOW());
 END//
 
 DELIMITER ;
@@ -41,7 +42,7 @@ DELIMITER //
 CREATE PROCEDURE iniciarSesion(
     IN p_email VARCHAR(100),
     IN p_password VARCHAR(255),
-    OUT p_id INT,
+    OUT p_id BIGINT,
     OUT p_nombreUsuario VARCHAR(100),
     OUT p_rolID INT,
     OUT p_nombreRol VARCHAR(50)

@@ -3,6 +3,11 @@ include '../BaseDeDatos/DataBase.php'; // Se manda a llamar la conexion de la ba
 
 // Asignacion de variables (parametros del formulario)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Generar un ID aleatorio de 10 dígitos
+    do {
+        $usuarioID = mt_rand(1000000000, 9999999999);
+        $result = $conn->query("SELECT 1 FROM Usuarios WHERE ID = $usuarioID");
+    } while ($result && $result->num_rows > 0);
     $nombreUsuario = htmlspecialchars($_POST['nombreUsuario']); // Nombre de usuario
     $email = htmlspecialchars($_POST['email']); // Email de usuario
     $password = $_POST['password']; // Password de usuario
@@ -14,14 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     */
 
     // Llamada al procedimiento almacenado
-    $stmt = $conn->prepare("CALL registrarUsuario(?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("CALL registrarUsuario(?, ?, ?, ?, ?, ?)");
 
     // if hecho para el testing y verificar los posibles errores que se generen con la consulta
     if ($stmt === false) {
         die("Error en la preparación de la consulta: " . $conn->error);
     }
 
-    $stmt->bind_param("ssiss", $nombreUsuario, $email, $password, $rolID, $nombreRol);
+    $stmt->bind_param("ississ",$usuarioID, $nombreUsuario, $email, $password, $rolID, $nombreRol);
     /*
     Tiene como función enlazar los parámetros del procedimiento almacenado con las variables de PHP,
     para pasarlas a la consulta de forma segura y evitar inyecciones SQL.
