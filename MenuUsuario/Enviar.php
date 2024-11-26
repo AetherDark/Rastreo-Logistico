@@ -33,15 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Ejecuta la consulta y verifica si fue exitosa
     if ($stmt->execute()) {
         // Redirigir o mostrar mensaje
-        header("Location: ../MenuUsuario/FormularioEnviar.html?Enviado=1");
+        header("Location: FormularioEnviar.html?Enviado=1");
     } else {
-        header("Location: ../MenuUsuario/FormularioEnviar.html?NoEnviado=1");
+        header("Location: FormularioEnviar.html?NoEnviado=1");
     }
 
     // Cierra la conexión
     $stmt->close();
     $conn->close();
 } else {
-    echo "Método no permitido.";
+    header("Location: FormularioEnviar.html?NoEnviado=1");
 }
 ?>

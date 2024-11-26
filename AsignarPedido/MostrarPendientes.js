@@ -77,8 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     botonAsignar.addEventListener('click', () => {
         if (pedidoSeleccionado) {
-            // Redirigir al HTML con el ID del pedido en la URL
-            window.location.href = `SeleccionRepartidor.html?id=${pedidoSeleccionado}`;
+            // Almacenar el ID del pedido en una cookie
+            document.cookie = `pedidoSeleccionado=${pedidoSeleccionado}; path=/`;
+
+            // Redirigir a la nueva página
+            window.location.href = 'SeleccionRepartidor.html';
         } else {
             alert("Por favor, selecciona un pedido primero.");
         }
