@@ -20,7 +20,7 @@ INSERT INTO Roles (ID, Nombre, Descripcion) VALUES
 -- Tabla Usuarios
 CREATE TABLE Usuarios
 (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
+	ID INT AUTO_INCREMENT UNIQUE,
     NombreUsuario VARCHAR(100) NOT NULL UNIQUE,
     Email VARCHAR(100) NOT NULL UNIQUE,
     PasswordHash VARCHAR(255) NOT NULL,
@@ -38,7 +38,7 @@ VALUES ('ADMIN', 'admin@gmail.com', '123456', 1, 'Admin', 'Activo');
 -- Tabla de Pedidos
 CREATE TABLE Pedidos 
 (
-    ID INT AUTO_INCREMENT PRIMARY KEY, -- ID del pedido
+    ID BIGINT AUTO_INCREMENT UNIQUE, -- ID del pedido
     UsuarioID INT, -- Remitente del que envia
     Destinatario VARCHAR(50), -- Nombre del destinatario
     DireccionDestino VARCHAR(255), -- Dirección de destino
@@ -51,7 +51,8 @@ CREATE TABLE Pedidos
 -- Tabla de pedidos a recibir
 CREATE TABLE pedidosRecibir
 (
-    ID INT AUTO_INCREMENT PRIMARY KEY, -- ID del pedido
+    IDRecibir INT AUTO_INCREMENT PRIMARY KEY, -- ID de la tabla
+    ID BIGINT, -- ID del pedido
     UsuarioID INT, -- ID del que recibira el pedido
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID),
     FOREIGN KEY (ID) REFERENCES Pedidos(ID)
@@ -60,8 +61,9 @@ CREATE TABLE pedidosRecibir
 -- Tabla para asignar pedidos a repartidores
 CREATE TABLE Asignaciones
 (
-    ID INT AUTO_INCREMENT PRIMARY KEY, -- ID de la asignacion
-    PedidoID INT, -- ID del pedido
+    IDAsignacion INT AUTO_INCREMENT PRIMARY KEY, -- ID de la asignacion
+    ID INT AUTO_INCREMENT UNIQUE, -- ID de la asignacion
+    PedidoID BIGINT, -- ID del pedido
     FOREIGN KEY (ID) REFERENCES Usuarios(ID),
     FOREIGN KEY (PedidoID) REFERENCES Pedidos(ID)
 );

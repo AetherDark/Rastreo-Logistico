@@ -3,35 +3,49 @@ include '../BaseDeDatos/DataBase.php'; // Conexión a la base de datos
 
 header('Content-Type: application/json');
 
-// Obtener datos de la solicitud
+// Leer y decodificar los datos de la solicitud
 $data = json_decode(file_get_contents('php://input'), true);
+
+// Validar datos recibidos
 $pedidoID = $data['pedidoID'] ?? null;
 $repartidorID = $data['repartidorID'] ?? null;
 
-if ($pedidoID && $repartidorID) {
+if (!$pedidoID || !$repartidorID) {
+    echo json_encode(['success' => false, 'error' => 'Datos incompletos.']);
+    exit;
+}
+
+try {
+    // Iniciar una transacción para asegurar la consistencia de los datos
+    $conn->begin_transaction();
+
     // Insertar la asignación en la tabla correspondiente
     $stmt = $conn->prepare("INSERT INTO Asignaciones (ID, PedidoID) VALUES (?, ?)");
     $stmt->bind_param('ii', $repartidorID, $pedidoID);
 
-    if ($stmt->execute()) {
-        // Después de la inserción, actualizar el estado del pedido
-        $updateStmt = $conn->prepare("UPDATE Pedidos SET EstadoActual = 'Paquete enviado' WHERE ID = ?");
-        $updateStmt->bind_param('i', $pedidoID);
-
-        if ($updateStmt->execute()) {
-            echo json_encode(['success' => true]);
-        } else {
-            echo json_encode(['success' => false, 'error' => $updateStmt->error]);
-        }
-
-        $updateStmt->close();
-    } else {
-        echo json_encode(['success' => false, 'error' => $stmt->error]);
+    if (!$stmt->execute()) {
+        throw new Exception("Error al asignar repartidor: " . $stmt->error);
     }
 
+    // Actualizar el estado del pedido
+    $updateStmt = $conn->prepare("UPDATE Pedidos SET EstadoActual = 'Paquete enviado' WHERE ID = ?");
+    $updateStmt->bind_param('i', $pedidoID);
+
+    if (!$updateStmt->execute()) {
+        throw new Exception("Error al actualizar el estado del pedido: " . $updateStmt->error);
+    }
+
+    // Confirmar la transacción
+    $conn->commit();
+
+    echo json_encode(['success' => true]);
+
     $stmt->close();
-} else {
-    echo json_encode(['success' => false, 'error' => 'Datos incompletos.']);
+    $updateStmt->close();
+} catch (Exception $e) {
+    // Revertir la transacción en caso de error
+    $conn->rollback();
+    echo json_encode(['success' => false, 'error' => $e->getMessage()]);
 }
 
 $conn->close();
