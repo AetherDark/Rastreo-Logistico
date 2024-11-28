@@ -6,13 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Formulario de envío para Trace & Track. Realiza tus pedidos y envíos de manera sencilla y rápida.">
     <title>Formulario de Envío | Trace & Track</title>
-
     <link rel="stylesheet" href="FormularioEnviar.css">
     <!-- Enlace a Font Awesome para íconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="../InicioDeSesionORegistro/auth.js"></script>
-    <script src="../InicioDeSesionORegistro/Burbuja.js"></script>
-    <script src="userNameUsuario.js"></script>
 </head>
 
 <body>
@@ -21,51 +17,51 @@
         <h1>TRACE & TRACK</h1>
         <p class="slogan">Tu envío, nuestra prioridad</p>
     </header>
-
+    
     <!-- Contenido principal -->
     <main class="content">
         <form id="envioForm" class="envio-form" method="POST" action="Enviar.php">
             <fieldset>
                 <legend>Información del Envío</legend>
-
+                
                 <!-- Nombre -->
                 <div class="form-group">
                     <label for="nombre">Nombre Completo del Destinatario:</label>
                     <input 
-                        type="text" 
-                        id="nombre" 
-                        name="nombre" 
-                        required 
-                        placeholder="Nombre completo"
-                        pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" 
-                        title="Solo se permiten letras y espacios.">
+                    type="text" 
+                    id="nombre" 
+                    name="nombre" 
+                    required 
+                    placeholder="Nombre completo"
+                    pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" 
+                    title="Solo se permiten letras y espacios.">
                 </div>
-
+                
                 <!-- Dirección -->
                 <div class="form-group">
                     <label for="direccion">Dirección de Envío:</label>
                     <textarea 
-                        id="direccion" 
-                        name="direccion" 
-                        rows="3" 
-                        required 
-                        placeholder="Dirección completa"></textarea>
+                    id="direccion" 
+                    name="direccion" 
+                    rows="3" 
+                    required 
+                    placeholder="Dirección completa"></textarea>
                 </div>
-
+                
                 <!-- Descripción -->
                 <div class="form-group">
                     <label for="descripcion">Descripción del Envío:</label>
                     <textarea 
-                        id="descripcion" 
-                        name="descripcion" 
-                        rows="4" 
-                        required 
-                        placeholder="Describe lo que vas a enviar"
-                        pattern=".{10,}" 
-                        title="La descripción debe tener al menos 10 caracteres."></textarea>
+                    id="descripcion" 
+                    name="descripcion" 
+                    rows="4" 
+                    required 
+                    placeholder="Describe lo que vas a enviar"
+                    pattern=".{10,}" 
+                    title="La descripción debe tener al menos 10 caracteres."></textarea>
                 </div>
             </fieldset>
-
+            
             <!-- Botones -->
             <div class="form-group-Btn">
                 <button type="submit" class="btn primary-btn">Enviar</button>
@@ -73,12 +69,12 @@
             </div>
         </form>
     </main>
-
+    
     <!-- Burbuja de saludo flotante -->
     <div id="saludoBubble" class="saludo-bubble">
         ¡Hola! Bienvenido <span id="user-name-display">Cargando...</span>
     </div>
-
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
@@ -89,6 +85,10 @@
         </div>
         <p>Trace & Track &copy; 2024</p>
     </footer>
+    
+    <script src="../InicioDeSesionORegistro/auth.js"></script>
+    <script src="../InicioDeSesionORegistro/Burbuja.js"></script>
+    <script src="userNameUsuario.js"></script>
+    
 </body>
-
 </html>
