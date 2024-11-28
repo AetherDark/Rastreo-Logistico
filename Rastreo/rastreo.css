@@ -14,7 +14,7 @@ body {
 .header {
     background-color: #4c2d78;
     width: 100%;
-    padding: 40px 0;  /* Aumenté el padding */
+    padding: 20px 0;  /* Reduje el padding */
     text-align: center;
     position: absolute;
     top: 0;
@@ -22,14 +22,14 @@ body {
 
 .header h1 {
     color: #ffffff;
-    font-size: 5em;  /* Aumenté el tamaño de la fuente */
+    font-size: 2.5em;  /* Reduje el tamaño de la fuente */
     margin: 0;
 }
 
 .slogan {
     color: #ffffff;
-    font-size: 2.5em;  /* Aumenté el tamaño de la fuente */
-    margin-top: 10px;
+    font-size: 1.2em;  /* Reduje el tamaño de la fuente */
+    margin-top: 5px;
 }
 
 /* Contenido principal */
@@ -40,38 +40,38 @@ body {
     justify-content: center;
     text-align: center;
     width: 100%;
-    max-width: 800px; /* Aumenté el ancho máximo */
-    padding: 80px; /* Aumenté el padding */
+    max-width: 800px; /* Mantuve el ancho máximo */
+    padding: 30px; /* Reduje el padding */
     background: #ffffff;
-    border-radius: 20px; /* Aumenté el borde redondeado */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Hice la sombra un poco más grande */
+    border-radius: 10px; /* Reduje el borde redondeado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra más suave */
 }
 
 /* Título */
 h2 {
-    font-size: 4em;  /* Aumenté el tamaño del título */
+    font-size: 2em;  /* Reduje el tamaño del título */
     color: #4c2d78;
-    margin-bottom: 50px;
+    margin-bottom: 30px; /* Ajusté el margen */
 }
 
 /* Caja de rastreo */
 .tracking-form {
     display: flex;
     flex-direction: column;
-    gap: 50px;  /* Aumenté el espacio entre los elementos */
+    gap: 20px;  /* Reduje el espacio entre los elementos */
     width: 100%;
 }
 
 .tracking-form label {
-    font-size: 2em; /* Aumenté el tamaño de la fuente */
+    font-size: 1.2em; /* Reduje el tamaño de la fuente */
     color: #4c2d78;
 }
 
 .tracking-form input {
-    padding: 30px; /* Aumenté el tamaño del padding */
-    font-size: 2em; /* Aumenté el tamaño de la fuente */
-    border: 2px solid #ddd;  /* Aumenté el grosor del borde */
-    border-radius: 15px;  /* Aumenté el borde redondeado */
+    padding: 10px; /* Reduje el tamaño del padding */
+    font-size: 1.2em; /* Reduje el tamaño de la fuente */
+    border: 2px solid #ddd;  /* Mantuve el grosor del borde */
+    border-radius: 10px;  /* Reduje el borde redondeado */
     outline: none;
     transition: border-color 0.3s ease;
     width: 100%; /* Asegura que ocupe todo el espacio disponible */
@@ -84,12 +84,12 @@ h2 {
 }
 
 .btn-consultar {
-    padding: 30px 40px; /* Aumenté el tamaño del padding */
+    padding: 10px 20px; /* Reduje el tamaño del padding */
     background-color: #4c2d78;
     color: #ffffff;
-    font-size: 2.5em; /* Aumenté el tamaño de la fuente */
+    font-size: 1.2em; /* Reduje el tamaño de la fuente */
     border: none;
-    border-radius: 15px;  /* Aumenté el borde redondeado */
+    border-radius: 10px;  /* Reduje el borde redondeado */
     cursor: pointer;
     transition: background-color 0.3s ease;
     align-self: center; /* Centra el botón dentro del formulario */
@@ -104,7 +104,7 @@ h2 {
     text-align: center;
     width: 100%;
     background-color: #4c2d78;
-    padding: 40px 0;  /* Aumenté el padding */
+    padding: 20px 0;  /* Reduje el padding */
     position: absolute; /* Fijo en la parte inferior */
     bottom: 0;
 }
@@ -112,14 +112,14 @@ h2 {
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 40px; /* Aumenté el espacio entre los enlaces */
-    margin-bottom: 20px;
+    gap: 20px; /* Reduje el espacio entre los enlaces */
+    margin-bottom: 10px;
 }
 
 .footer-links a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 2em;  /* Aumenté el tamaño de la fuente */
+    font-size: 1.2em;  /* Reduje el tamaño de la fuente */
 }
 
 .footer-links a:hover {
@@ -128,5 +128,5 @@ h2 {
 
 .footer p {
     color: #ffffff;
-    font-size: 2em;  /* Aumenté el tamaño de la fuente */
+    font-size: 1em;  /* Reduje el tamaño de la fuente */
 }
