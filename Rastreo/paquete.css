@@ -1,150 +1,46 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #c9d6ff, #e2e2e2);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.header {
-    background-color: #4c2d78;
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header h1 {
-    color: #ffffff;
-    font-size: 2.5em;
-    margin: 0;
-}
-
-.slogan {
-    color: #ffffff;
-    font-size: 1.2em;
-    margin-top: 5px;
-}
-
-.content {
+/* Formulario de rastreo */
+.tracking-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 80vh;
+    gap: 80px; /* Espacio entre los elementos */
     width: 100%;
+    margin-top: 100px;
 }
 
-h2 {
-    font-size: 2em;
+.tracking-form label {
+    font-size: 6em; /* Doble de tamaño para el texto del label */
     color: #4c2d78;
-    margin-bottom: 30px;
+    margin-bottom: 40px; /* Aumento de espacio entre el label y el input */
 }
 
-.progress-container {
-    width: 80%;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.tracking-form input {
+    width: 1200px; /* Doble de ancho */
+    height: 180px; /* Doble de altura */
+    font-size: 4em; /* Doble de tamaño para el texto dentro del input */
+    padding: 40px; /* Doble de espacio interno */
+    border: 8px solid #4c2d78; /* Borde más grueso */
+    border-radius: 40px; /* Bordes más redondeados */
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
-.progress {
-    width: 100%;
-    height: 40px; /* Aumenté el tamaño de la barra */
-    background-color: #f3f3f3;
-    border-radius: 20px;
-    position: relative; /* Para posicionar el ícono */
+.tracking-form input:focus {
+    border-color: #007bff; /* Color de borde al hacer foco */
 }
 
-.progress-bar {
-    background-color: #007bff; /* Azul más bonito */
-    height: 100%;
-    border-radius: 20px;
-    transition: width 0.5s ease-in-out;
-    position: relative;
-    padding-right: 30px; /* Para espacio a la derecha del ícono */
-}
-
-.progress-icon {
-    position: absolute;
-    top: 50%;
-    right: 10px; /* Ajusté el ícono para que quede dentro de la barra azul */
-    transform: translateY(-50%);
-    font-size: 1.8em;
-    color: white;
-}
-
-.progress-steps {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.progress-step {
-    font-size: 1em;
-    color: #6c757d;
-    text-align: center;
-    flex: 1;
-}
-
-.progress-step.active {
-    color: #007bff;
-    font-weight: bold;
-}
-
-.regresar-btn-container {
-    margin-top: 30px;
-}
-
-.btn-regresar {
+.tracking-form button {
     background-color: #4c2d78;
     color: #ffffff;
-    padding: 10px 20px;
+    font-size: 6em; /* Doble de tamaño para el texto del botón */
+    padding: 60px 120px; /* Doble de tamaño del padding */
     border: none;
-    border-radius: 10px;
-    font-size: 1.2em;
+    border-radius: 40px; /* Bordes del botón más redondeados */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.btn-regresar:hover {
-    background-color: #3d1e5e;
-}
-
-/* Footer */
-.footer {
-    margin-top: 20px;
-    text-align: center;
-    width: 100%;
-    background-color: #4c2d78;
-    padding: 20px 0;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1em;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-.footer p {
-    color: #ffffff;
+.tracking-form button:hover {
+    background-color: #3d1e5e; /* Color al pasar el mouse */
 }
