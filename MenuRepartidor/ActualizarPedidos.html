@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Estado de Pedidos</title>
+    <title>Lista de Envíos Asignados</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="MenuRepartidor.css">
     <link rel="stylesheet" href="EstilosComunes.css">
@@ -12,7 +12,7 @@
 <body>
 
     <header class="custom-navbar text-white p-3">
-        <h1>Actualizar Estado de Pedidos</h1>
+        <h1>Lista de Envíos Asignados</h1>
         <!-- Burbuja de saludo flotante -->
         <div id="saludoBubble" class="saludo-bubble">
             ¡Hola! Bienvenido <br>
@@ -21,43 +21,40 @@
     </header>
 
     <main class="container mt-4">
-        <form id="updateForm">
-            <!-- Campo para ingresar el ID del pedido -->
-            <div class="form-group">
-                <label for="pedidoId">ID del Pedido</label>
-                <input type="text" class="form-control" id="pedidoId" required>
-            </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Descripción</th>
+                    <th>Estado Actual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Entrega de comida</td>
+                    <td>En tránsito</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Entrega de paquete</td>
+                    <td>Entregado</td>
+                </tr>
+                <!-- Aquí se pueden agregar más filas de pedidos dinámicamente -->
+            </tbody>
+        </table>
 
-            <!-- Menú desplegable para seleccionar el estado -->
-            <div class="form-group">
-                <label for="nuevoEstado">Nuevo Estado</label>
-                <select class="form-control" id="nuevoEstado" required>
-                    <option value="En tránsito">En tránsito</option>
-                    <option value="Entregado">Entregado</option>
-                    <option value="Perdido">Perdido</option>
-                </select>
-            </div>
-
-            <!-- Campo para agregar comentarios opcionales -->
-            <div class="form-group">
-                <label for="comentario">Comentario</label>
-                <textarea class="form-control" id="comentario" rows="3" placeholder="Agrega un comentario (opcional)"></textarea>
-            </div>
-
-            <!-- Botones de acción -->
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Actualizar Estado</button>
-                <button type="button" class="btn btn-secondary" onclick="window.location.href='MenuRepartidor.html'">Regresar</button>
-            </div>
-        </form>
+        <!-- Botones alineados horizontalmente con espacio entre ellos -->
+        <div style="display: flex; justify-content: space-between; gap: 15px;" class="mt-4">
+            <button class="btn btn-primary" onclick="window.location.href='MenuRepartidor.html'">Cambiar Estado</button>
+            <button class="btn btn-primary" onclick="window.location.href='MenuRepartidor.html'">Extravio</button>
+            <button class="btn btn-primary" onclick="window.location.href='MenuRepartidor.html'">Regresar</button>
+        </div>
     </main>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="Funcionalidades.js"></script>
-    <!--script src="../InicioDeSesionORegistro/auth.js"></script>
-    <script src="userNameRepartidor.js"></script>
-    <script src="RolRepartidor.js"></script-->
+
 </body>
 </html>

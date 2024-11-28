@@ -5,7 +5,7 @@ header('Content-Type: application/json'); // Establecer la cabecera de tipo de c
 
     // Consultar el los pedidos enviados
     $stmt = $conn->prepare("SELECT Pedidos.ID, Usuarios.NombreUsuario , Pedidos.Destinatario, Pedidos.Descripcion FROM Pedidos
-    JOIN Usuarios ON Pedidos.UsuarioID = Usuarios.ID
+    JOIN Usuarios ON Pedidos.UsuarioID = Usuarios.IDUsuario
     WHERE Pedidos.EstadoActual = 'Paquete en proceso'");
     $stmt->execute();
     $result = $stmt->get_result();

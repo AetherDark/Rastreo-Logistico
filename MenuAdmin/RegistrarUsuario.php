@@ -7,6 +7,11 @@ include '../BaseDeDatos/DataBase.php';
 // Verificar que la solicitud sea de tipo POST y que los campos requeridos estén presentes
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'], $_POST['email'], $_POST['rol'], $_POST['pass'])) {
     // Recoger los datos enviados desde el formulario
+    // Generar un ID aleatorio de 10 dígitos
+    do {
+        $usuarioID = mt_rand(1000000000, 9999999999);
+        $result = $conn->query("SELECT 1 FROM Usuarios WHERE ID = $usuarioID");
+    } while ($result && $result->num_rows > 0);
     $nombre = $_POST['nombre'];  // Nombre completo del usuario
     $email = $_POST['email'];    // Correo electrónico del usuario
     $rolID = $_POST['rol'];      // ID del rol seleccionado (1 para administrador, 2 para repartidor)
@@ -62,10 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'], $_POST['ema
     }
 
     // Insertar el nuevo usuario en la base de datos con el nombre, correo, rol y contraseña
-    $query = "INSERT INTO Usuarios (NombreUsuario, Email, RolID, NombreRol, PasswordHash, EstadoCuenta) VALUES (?, ?, ?, ?, ?, 'Activo')";
+    $query = "INSERT INTO Usuarios (ID, NombreUsuario, Email, RolID, NombreRol, PasswordHash, EstadoCuenta) VALUES (?, ?, ?, ?, ?, ?, 'Activo')";
     if ($stmt = $conn->prepare($query)) {
         // Vincular los parámetros para la inserción de los datos en la base de datos
-        $stmt->bind_param("ssiss", $nombre, $email, $rolID, $roleName, $password); // Incluir la contraseña directamente (no hash)
+        $stmt->bind_param("ississ", $usuarioID, $nombre, $email, $rolID, $roleName, $password); // Incluir la contraseña directamente (no hash)
 
         // Ejecutar la consulta y verificar si la inserción fue exitosa
         if ($stmt->execute()) {
