@@ -16,12 +16,14 @@
         <h2>Consulta tu paquete</h2>
 
         <div class="tracking-box">
-            <form class="tracking-form">
+            <form class="tracking-form" action="ConsultaAnonima.php" method="post">
                 <label for="tracking-code">Ingresa tu código de rastreo:</label>
-                <input type="text" id="tracking-code" name="tracking-code" placeholder="Ejemplo: 123ABC456" required>
+                <input type="text" id="tracking-code" name="tracking-code" placeholder="Ejemplo: 123456" required>
                 <button type="submit" class="btn-consultar">Consultar</button>
+                <button class="btn-consultar" onclick="window.location.href='../MenuPrincipal/Menu.html'">Regresar</button>
             </form>
         </div>
+        
     </div>
 
     <footer class="footer">
