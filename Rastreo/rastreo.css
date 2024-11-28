@@ -1,0 +1,132 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;   /* Centrado vertical */
+    min-height: 100vh;     /* Altura completa de la pantalla */
+}
+
+/* Header */
+.header {
+    background-color: #4c2d78;
+    width: 100%;
+    padding: 40px 0;  /* Aumenté el padding */
+    text-align: center;
+    position: absolute;
+    top: 0;
+}
+
+.header h1 {
+    color: #ffffff;
+    font-size: 5em;  /* Aumenté el tamaño de la fuente */
+    margin: 0;
+}
+
+.slogan {
+    color: #ffffff;
+    font-size: 2.5em;  /* Aumenté el tamaño de la fuente */
+    margin-top: 10px;
+}
+
+/* Contenido principal */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Asegura que el contenido esté centrado horizontalmente */
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 800px; /* Aumenté el ancho máximo */
+    padding: 80px; /* Aumenté el padding */
+    background: #ffffff;
+    border-radius: 20px; /* Aumenté el borde redondeado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Hice la sombra un poco más grande */
+}
+
+/* Título */
+h2 {
+    font-size: 4em;  /* Aumenté el tamaño del título */
+    color: #4c2d78;
+    margin-bottom: 50px;
+}
+
+/* Caja de rastreo */
+.tracking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;  /* Aumenté el espacio entre los elementos */
+    width: 100%;
+}
+
+.tracking-form label {
+    font-size: 2em; /* Aumenté el tamaño de la fuente */
+    color: #4c2d78;
+}
+
+.tracking-form input {
+    padding: 30px; /* Aumenté el tamaño del padding */
+    font-size: 2em; /* Aumenté el tamaño de la fuente */
+    border: 2px solid #ddd;  /* Aumenté el grosor del borde */
+    border-radius: 15px;  /* Aumenté el borde redondeado */
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%; /* Asegura que ocupe todo el espacio disponible */
+    text-align: center; /* Centra el texto dentro del cuadro */
+    box-sizing: border-box; /* Incluye padding en el tamaño total */
+}
+
+.tracking-form input:focus {
+    border-color: #4c2d78;
+}
+
+.btn-consultar {
+    padding: 30px 40px; /* Aumenté el tamaño del padding */
+    background-color: #4c2d78;
+    color: #ffffff;
+    font-size: 2.5em; /* Aumenté el tamaño de la fuente */
+    border: none;
+    border-radius: 15px;  /* Aumenté el borde redondeado */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Centra el botón dentro del formulario */
+}
+
+.btn-consultar:hover {
+    background-color: #3d1e5e;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    width: 100%;
+    background-color: #4c2d78;
+    padding: 40px 0;  /* Aumenté el padding */
+    position: absolute; /* Fijo en la parte inferior */
+    bottom: 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Aumenté el espacio entre los enlaces */
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 2em;  /* Aumenté el tamaño de la fuente */
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer p {
+    color: #ffffff;
+    font-size: 2em;  /* Aumenté el tamaño de la fuente */
+}
