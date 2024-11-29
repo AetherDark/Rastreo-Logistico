@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rastrear Envío</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="AsignarPedido.css">
-    <script src="../InicioDeSesionORegistro/auth.js"></script>
-    <script src="userNameAdmin.js"></script>
-    <script src="RolAdmin.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -21,7 +17,7 @@
             </header>
         </div>
     </nav>
-
+    
     <main class="container text-center">
         <h2 class="mb-4">Asignar Repartidor</h2>
         <table class="table table-striped">
@@ -39,19 +35,23 @@
                 <!-- Aquí se llenarán los datos de los usuarios con JavaScript -->
             </tbody>
         </table>
-
+        
         <div class="search-bar">
             <button id="AsignarRepartidor" class="btn btn-success mt-2" disabled>Asignar pedido</button>
             <button class="btn btn-success mt-2" onclick="window.location.href='AsignarPedido.html'">Regresar</button>
         </div>
     </main>
-
-    <script src="AsignarRepartidor.js"></script>
-
+    
     <!-- Burbuja de saludo flotante -->
     <div id="saludoBubble" class="saludo-bubble">
         ¡Hola! Bienvenido <span id="user-name-display">Cargando...</span>
     </div>
-
+    
+    <script src="AsignarRepartidor.js"></script>
+    <script src="RolAdmin.js"></script>
+    <script src="userNameAdmin.js"></script>
+    <script src="../InicioDeSesionORegistro/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
