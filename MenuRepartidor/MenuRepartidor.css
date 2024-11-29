@@ -193,3 +193,12 @@ body {
     font-size: 12px;
     margin-top: 5px; /* Separación entre "Bienvenido" y "Cargando..." */
 }
+
+
+.fila-pedido.seleccionado {
+    background-color: #d9edf7; /* Color de fondo */
+    cursor: pointer;
+}
+.fila-pedido {
+    cursor: pointer;
+}
