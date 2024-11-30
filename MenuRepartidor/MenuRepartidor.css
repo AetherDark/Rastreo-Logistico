@@ -177,10 +177,6 @@ body {
     z-index: 9999; /* Superpone la burbuja sobre todo */
 }
 
-
-
-
-
 /* Mostrar la burbuja */
 .saludo-bubble.show {
     opacity: 1;
