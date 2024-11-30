@@ -25,180 +25,100 @@ body {
     margin: 0;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    width: 100%;
-}
-
 .container {
     max-width: 1200px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
     padding: 0 20px;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
-/* Estilos para tarjetas */
-.card {
-    background-color: #e6e6e6;
-    border-radius: 15px;
-    padding: 30px;
+/* Estilos para botones y tabla */
+.table-striped th, .table-striped td {
     text-align: center;
-    border: 1px solid #000000;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Contenedor para agrupar y alinear la selección y los botones */
+.aligned-actions {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 350px; /* Ajuste del ancho de la tarjeta */
-    height: auto;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card h2 {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.card p {
-    color: #333;
-    font-size: 0.9em;
-    margin-bottom: auto;
-}
-
-.btn {
-    background-color: #b299d7;
-    color: #ffffff;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1em;
+    align-items: center; /* Alinea verticalmente */
+    justify-content: space-between; /* Espaciado horizontal */
+    gap: 15px; /* Espaciado entre elementos */
+    flex-wrap: wrap; /* Asegura que los elementos se acomoden en pantallas pequeñas */
     margin-top: 20px;
 }
 
-.btn:hover {
-    background-color: #8f6bbd;
+/* Ajustes específicos para el campo de selección */
+.aligned-actions select {
+    flex: 1; /* Ocupa espacio proporcional al resto */
+    max-width: 300px; /* Define un ancho máximo */
 }
 
-/* Estilo específico para el botón de cerrar sesión */
-.logout-btn {
-    background-color: #e6e6e6;
-    color: #333;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 1em;
+/* Ajustes para los botones */
+.aligned-actions .btn {
+    flex: 1; /* Ocupan espacio proporcional */
+    max-width: 150px; /* Define un ancho máximo */
+    text-align: center;
 }
 
-.logout-btn:hover {
-    background-color: #cccccc;
-}
-
-/* Diseño responsivo */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 400px;
-        margin-bottom: 20px;
-    }
-}
-
-/* Media query para resoluciones intermedias */
-@media (min-width: 769px) and (max-width: 1199px) {
-    .container {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-    }
-}
-
-/* Estilos para el logo */
-.Logo {
-    font-family: 'Futura', 'Arial', sans-serif;
-    font-size: 3em;
-    font-weight: bold;
-}
-
-.Logo .Track {
-    color: #ff6600;
-}
-
-.Logo .Trace {
-    color: #4c2d78;
-}
-
-.Logo span {
-    font-weight: bold;
-}
-
-.top-right {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.2em;
-    color: #ffffff;
-}
 /* Estilo para la burbuja de saludo flotante */
 .saludo-bubble {
-    position: fixed; /* Fija la burbuja para que no se desplace con el contenido */
-    bottom: 20px; /* Distancia desde el borde inferior */
-    right: 20px; /* Distancia desde el borde derecho */
-    background-color: #b299d7; /* Color de fondo */
-    color: white; /* Color de texto */
-    padding: 15px; /* Espaciado interno */
-    border-radius: 20px; /* Hace la burbuja ovalada */
-    font-size: 16px; /* Tamaño del texto principal */
-    font-weight: bold; /* Peso del texto */
-    text-align: center; /* Centra el texto */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras suaves */
-    cursor: pointer; /* Muestra el cursor de interacción */
-    transition: opacity 0.3s ease; /* Suaviza la aparición/desaparición */
-    max-width: 200px; /* Limita el ancho */
-    line-height: 1.2; /* Espaciado entre líneas */
-    word-wrap: break-word; /* Permite que el texto se ajuste */
-    z-index: 9999; /* Superpone la burbuja sobre todo */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #b299d7;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    max-width: 200px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    z-index: 9999;
 }
 
-
-
-
-
-/* Mostrar la burbuja */
 .saludo-bubble.show {
     opacity: 1;
 }
 
-/* Para el texto de usuario */
 #user-name-display {
-    display: block;  /* Asegura que "Cargando..." esté debajo del mensaje */
+    display: block;
     font-weight: normal;
     font-size: 12px;
-    margin-top: 5px; /* Separación entre "Bienvenido" y "Cargando..." */
+    margin-top: 5px;
 }
-
 
 .fila-pedido.seleccionado {
-    background-color: #d9edf7; /* Color de fondo */
+    background-color: #d9edf7;
     cursor: pointer;
 }
+
 .fila-pedido {
     cursor: pointer;
 }
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .aligned-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .aligned-actions select, .aligned-actions .btn {
+        max-width: 100%; /* Ocupan todo el ancho en pantallas pequeñas */
+    }
+}
+
+.custom-navbar h1 {
+    color: purple; /* Cambia el color del texto a morado */
+}
+
+.saludo-bubble {
+    background-color: #e6e1f5; /* Fondo de la burbuja ajustado a un tono suave si deseas */
+    color: purple; /* Cambia el color del texto dentro de la burbuja a morado */
+}
+
