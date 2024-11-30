@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(response => response.json())
     .then(data => {
-        // Asumimos que el estado actual viene como 'proceso', 'enviado', 'transito', o 'entregado'
+        // Asumimos que el estado actual viene como 'proceso', 'enviado', 'transito', 'entregado', 'cancelado' o 'extraviado'
         const estadoActual = data.EstadoActual;
 
         // Determinar el progreso y actualizar la barra de progreso
@@ -41,6 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 progressPercentage = 100;
                 activeStepIndex = 3;
                 break;
+            case 'Cancelado':
+            case 'Extraviado':
+                // Cambiar el color de la barra a rojo
+                progressBar.style.backgroundColor = 'red';
+                progressBar.style.width = '100%';
+                progressBar.setAttribute('aria-valuenow', 100);
+
+                // Mostrar alerta al usuario
+                alert(`Su paquete fue ${estadoActual.toLowerCase()}. Por favor, contacte a soporte.`);
+                return; // No continuar actualizando los pasos
             default:
                 progressPercentage = 0;
                 activeStepIndex = 0;
