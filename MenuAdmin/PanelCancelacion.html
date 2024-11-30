@@ -20,47 +20,28 @@
         </div>
     </header>
     
-    <div class="container-fluid mt-5"> <!-- Contenedor principal para el contenido -->
-        <h2 class="text-center">Cancelación de Pedido</h2> <!-- Título de la sección -->
-        <p class="text-center text-muted">Completar el formulario para la cancelación del pedido</p> <!-- Descripción de la sección -->
-        
-        <form>
-            <!-- Número de pedido -->
-            <div class="form-group">
-                <label for="pedido">ID Pedido:</label>
-                <input type="text" class="form-control w-100" id="pedido" name="pedido" placeholder="Ingresa el número de pedido" required>
-            </div>
-            
-            <!-- Nombre del cliente -->
-            <div class="form-group">
-                <label for="nombre">Nombre Cliente:</label>
-                <input type="text" class="form-control w-100" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" required>
-            </div>
-            
-            <!-- Motivo de la cancelación -->
-            <div class="form-group">
-                <label for="motivo">Motivo de la Cancelación:</label>
-                <select class="form-control w-100" id="motivo" name="motivo" required>
-                    <option value="">Selecciona una opción</option>
-                    <option value="cambio_decision">Cambio de decisión</option>
-                    <option value="problemas_pago">Problemas con el pago</option>
-                    <option value="envio_tardio">Envío tardío</option>
-                    <option value="error_pedido">Error en el pedido</option>
-                </select>
-            </div>
-            
-            <!-- Descripción adicional -->
-            <div class="form-group">
-                <label for="descripcion">Descripción Adicional (opcional):</label>
-                <textarea class="form-control w-100" id="descripcion" name="descripcion" rows="3" placeholder="Proporciona detalles adicionales sobre la cancelación"></textarea>
-            </div>
-            
-            <!-- Botón de envío -->
-            <button type="submit" class="btn btn-danger btn-block">Cancelar pedido</button>
-            <!-- Botón para regresar al menú de administrador -->
-            <button class="btn btn-danger btn-block" onclick="window.location.href='MenuAdmin.html'">Regresar al menu</button>
-        </form>
-    </div>
+    <main class="container mt-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Descripción</th>
+                    <th>Direccion</th>
+                    <th>Estado Actual</th>
+                </tr>
+            </thead>
+            <tbody id="allpedidos">
+                <!-- Mostrara todos los pedidos que no tengan las opciones de extraviado, cancelado o entregado -->
+            </tbody>
+        </table>
+
+        <!-- Botones alineados horizontalmente con espacio entre ellos -->
+        <div style="display: flex; justify-content: space-between; gap: 15px;" class="mt-4">
+            <button class="btn btn-primary" id="cancelar" disabled>Cambiar Estado</button>
+            <button class="btn btn-primary" onclick="window.location.href='MenuAdmin.html'">Regresar</button>
+        </div>
+
+    </main>
     
     <footer class="footer mt-5 text-center">
         <!-- Pie de página con información de derechos reservados -->
@@ -74,6 +55,7 @@
     <script src="../InicioDeSesionORegistro/auth.js" ></script>
     <script src="../InicioDeSesionORegistro/Burbuja.js" ></script>
     <script src="Rol.js"></script>
+    <script src="allPedidos.js"></script>
     
 </body>
 </html>
