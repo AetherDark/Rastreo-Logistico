@@ -8,8 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuarioID = mt_rand(1000000000, 9999999999);
         $result = $conn->query("SELECT 1 FROM Usuarios WHERE ID = $usuarioID");
     } while ($result && $result->num_rows > 0);
-    // Este ciclo do while se encarga de evitar la repeticion de id existentes
-
     $nombreUsuario = htmlspecialchars($_POST['nombreUsuario']); // Nombre de usuario
     $email = htmlspecialchars($_POST['email']); // Email de usuario
     $password = $_POST['password']; // Password de usuario
@@ -28,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error en la preparación de la consulta: " . $conn->error);
     }
 
-    $stmt->bind_param("isssis",$usuarioID, $nombreUsuario, $email, $password, $rolID, $nombreRol);
+    $stmt->bind_param("ississ",$usuarioID, $nombreUsuario, $email, $password, $rolID, $nombreRol);
     /*
     Tiene como función enlazar los parámetros del procedimiento almacenado con las variables de PHP,
     para pasarlas a la consulta de forma segura y evitar inyecciones SQL.

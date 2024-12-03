@@ -1,4 +1,20 @@
 -- Procedimiento de Registro de Usuarios
+-- Verificación de la existencia de un usuario
+DELIMITER //
+
+CREATE TRIGGER verificarDuplicadosAntesDeInsertar
+BEFORE INSERT ON Usuarios
+FOR EACH ROW
+BEGIN
+    -- Verificar si el nombre de usuario o el correo electrónico ya existen
+    IF EXISTS (SELECT 1 FROM Usuarios WHERE NombreUsuario = NEW.NombreUsuario OR Email = NEW.Email) THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'El nombre de usuario o el correo ya están en uso.';
+    END IF;
+END//
+
+DELIMITER ;
+
 -- Procedimiento de registros de usuarios
 DELIMITER //
 

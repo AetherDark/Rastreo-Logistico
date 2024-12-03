@@ -64,7 +64,7 @@ fetch('MostrarPendientes.php', { method: 'POST' })  // Realizar una solicitud PO
         const row = document.createElement('tr');
         const cell = document.createElement('td');
         cell.colSpan = 4;
-        cell.textContent = "No hay pedidos pendientes de asignar.";
+        cell.textContent = "No has realizado ningun envio.";
         row.appendChild(cell);
         contenedor.appendChild(row);
     }

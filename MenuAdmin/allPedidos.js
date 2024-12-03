@@ -50,7 +50,7 @@ fetch('allPedidos.php', { method: 'POST' })
             const row = document.createElement('tr');
             const cell = document.createElement('td');
             cell.colSpan = 4;
-            cell.textContent = "No hay pedidos pendiente de revisar.";
+            cell.textContent = "No tienes ningún pedido asignado.";
             row.appendChild(cell);
             contenedor.appendChild(row);
         }

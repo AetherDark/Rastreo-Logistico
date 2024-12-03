@@ -32,10 +32,6 @@ function mostrarAlertaErrorAuto() {
     alert('Error en la autenticacion. Contacta al administrador');
 }
 
-// Función para mostrar la alerta de inactividad
-function mostrarAlertaInactividad() {
-    alert('Sesión expirada por inactividad');
-}
 /* Función para mostrar la alerta de error de cambio de contraseña
 function mostrarAlertaErrorCambioPass() {
     alert('Error al cambiar la contraseña');
@@ -76,10 +72,6 @@ else if (urlParams.has('ErrorCuenta')) {
 // Verificar si existe el parámetro 'ErrorAuto' en la URL para mostrar la alerta
 else if (urlParams.has('ErrorAuto')) {
     mostrarAlertaErrorAuto(); // Llamar a la función de alerta
-}
-// Alerta de expiracion de sesion
-else if (urlParams.has('inactividad')) {
-    mostrarAlertaInactividad(); // Llamar a la función de alerta
 }
 /* Verificar si existe el parámetro 'Error-Cambio-Pass' en la URL para mostrar la alerta
 else if (urlParams.has('Error-Cambio-Pass')) {
