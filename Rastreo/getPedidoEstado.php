@@ -10,7 +10,7 @@ if (isset($data['id'])) {
     $pedidoID = $data['id'];
 
     // Consultar el estado del pedido
-    $sql = "SELECT EstadoActual FROM Pedidos WHERE ID = ?";
+    $sql = "CALL obtenerEstadoPedido(?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $pedidoID);
     $stmt->execute();

@@ -14,7 +14,7 @@ if (isset($input['id']) && isset($input['estado'])) {
     // Verificar si el ID y el estado son válidos
     if ($id > 0 && !empty($estado)) {
         // Preparar la consulta para actualizar el estado del pedido
-        $query = "UPDATE Pedidos SET EstadoActual = ? WHERE ID = ?";
+        $query = "CALL actualizarEstadoPedidoRepartidor(?, ?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param('si', $estado, $id);
 

@@ -8,7 +8,7 @@ $userID = $data['userID'];
 $estadoCuenta = $data['estado'];
 
 // Actualizar el estado del usuario
-$sql = "UPDATE Usuarios SET EstadoCuenta = ? WHERE ID = ?";
+$sql = "CALL actualizarEstadoUsuario(?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("si", $estadoCuenta, $userID);
 

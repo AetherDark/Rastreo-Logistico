@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuarioID = $_COOKIE['user_id'];
 
     // Consulta para obtener el IDUsuario usando el ID almacenado en la cookie
-    $stmtUsuario = $conn->prepare("SELECT IDUsuario FROM Usuarios WHERE ID = ?");
+    $stmtUsuario = $conn->prepare("CALL obtenerIDUsuario(?)");
     $stmtUsuario->bind_param("i", $usuarioID);
     $stmtUsuario->execute();
     $stmtUsuario->bind_result($idUsuarioResult);
@@ -39,9 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $estadoActual = "Paquete en proceso";
 
     // Prepara la consulta SQL para insertar el pedido
-    $stmt = $conn->prepare(
-        "INSERT INTO Pedidos (ID, UsuarioID, Destinatario, DireccionDestino, Descripcion, EstadoActual) VALUES (?, ?, ?, ?, ?, ?)"
-    );
+    $stmt = $conn->prepare("CALL insertarPedido(?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("iissss",$pedidoID, $idUsuarioResult, $destinatario, $direccionDestino, $descripcion, $estadoActual);
 
     // Ejecuta la consulta y verifica si fue exitosa

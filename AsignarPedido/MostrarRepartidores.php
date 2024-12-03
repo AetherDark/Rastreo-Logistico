@@ -7,7 +7,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta de los usuarios de la base de datos
-$sql = "SELECT ID, NombreUsuario, Email, EstadoCuenta FROM Usuarios WHERE RolID = 2 AND EstadoCuenta = 'Activo'"; // Consulta SQL para obtener los usuarios
+$sql = "SELECT ID, NombreUsuario, Email, EstadoCuenta FROM vista_repartidores_activos"; // Consulta SQL para obtener los usuarios
 $result = $conn->query($sql); // Ejecutar la consulta
 
 // Verificar si se obtuvieron resultados
