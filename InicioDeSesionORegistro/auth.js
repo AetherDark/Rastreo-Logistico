@@ -17,7 +17,7 @@ async function checkAuth() {
     const userID = getCookie("user_id");
     if (!userID) {
         // Si la cookie no existe, redirige al inicio de sesión
-        window.location.href = "../InicioDeSesionORegistro/Sesion.html";
+        window.location.href = "../InicioDeSesionORegistro/Sesion.html?inactividad=1";
     } else {
         try {
             const response = await fetch("../InicioDeSesionORegistro/CheckAccountStatus.php", {

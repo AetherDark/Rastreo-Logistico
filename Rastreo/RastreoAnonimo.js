@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
         .catch(error => console.error('Error al obtener el estado del pedido:', error));
-        alert('Se ha encontrado un código de rastreo en la cookie.');
     } else {
         alert('No se ha encontrado ningun pedido con ese codigo.');
     }
