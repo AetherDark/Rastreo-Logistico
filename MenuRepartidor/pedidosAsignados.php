@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $userID = $_COOKIE['user_id'];
 
         // Consulta para obtener el IDUsuario usando el ID almacenado en la cookie
-        $stmtUsuario = $conn->prepare("SELECT IDUsuario FROM Usuarios WHERE ID = ?");
+        $stmtUsuario = $conn->prepare("CALL obtenerIDUsuario(?)");
         $stmtUsuario->bind_param("i", $userID); // Usamos el valor de la cookie para la consulta
         $stmtUsuario->execute();
         $stmtUsuario->bind_result($idUsuario); // Vincular el resultado a la variable $idUsuario
@@ -21,9 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Consultar los pedidos enviados para el usuario
-    $stmt = $conn->prepare("SELECT Pedidos.ID, Pedidos.Descripcion, Pedidos.EstadoActual FROM Asignaciones
-    JOIN Pedidos ON Asignaciones.PedidoID = Pedidos.ID
-    WHERE Asignaciones.ID = ? AND Pedidos.EstadoActual NOT IN ('Entregado', 'Extraviado', 'Cancelado')");
+    $stmt = $conn->prepare("CALL obtenerPedidosEnviadosUsuario(?)");
     $stmt->bind_param("i", $idUsuario); // Usar el IDUsuario obtenido previamente
     $stmt->execute();
     $result = $stmt->get_result();

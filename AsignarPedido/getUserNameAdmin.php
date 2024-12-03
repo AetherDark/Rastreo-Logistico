@@ -5,7 +5,7 @@ if (isset($_COOKIE['user_id'])) {
     $userID = $_COOKIE['user_id'];
 
     // Preparar y ejecutar la consulta para obtener el nombre del usuario
-    $stmt = $conn->prepare("SELECT NombreUsuario FROM Usuarios WHERE ID = ?");
+    $stmt = $conn->prepare("CALL obtenerNombreUsuario(?)");
     $stmt->bind_param("i", $userID);
     $stmt->execute();
     $result = $stmt->get_result();

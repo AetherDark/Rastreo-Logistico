@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'], $_POST['ema
     }
 
     // Insertar el nuevo usuario en la base de datos con el nombre, correo, rol y contraseña
-    $query = "INSERT INTO Usuarios (ID, NombreUsuario, Email, RolID, NombreRol, PasswordHash, EstadoCuenta) VALUES (?, ?, ?, ?, ?, ?, 'Activo')";
+    $query = "CALL insertarUsuario(?, ?, ?, ?, ?, ?)";
     if ($stmt = $conn->prepare($query)) {
         // Vincular los parámetros para la inserción de los datos en la base de datos
         $stmt->bind_param("ississ", $usuarioID, $nombre, $email, $rolID, $roleName, $password); // Incluir la contraseña directamente (no hash)
