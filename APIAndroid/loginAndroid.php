@@ -11,45 +11,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $data['email'] ?? '';
     $password = $data['password'] ?? '';
 
-    if (empty($email) || empty($password)) {
-        echo json_encode(['success' => false, 'message' => 'Email o contraseña faltantes.']);
-        exit;
+    $stmt = $conn->prepare("CALL iniciarSesion(?, ?, @id, @nombreUsuario, @rolID, @nombreRol)");
+    $stmt->bind_param("ss", $email, $password);
+
+    if ($stmt->execute()) {
+        $result = $conn->query("SELECT @id AS id, @nombreUsuario AS nombreUsuario, @rolID AS rolID, @nombreRol AS nombreRol");
+        $row = $result->fetch_assoc();
+
+        $id = $row['id'];
+        $nombreUsuario = $row['nombreUsuario'];
+        $rolID = $row['rolID'];
+        $nombreRol = $row['nombreRol'];
     }
 
-    // Consultar el usuario en la base de datos
-    $stmt = $conn->prepare("SELECT ID, NombreUsuario, PasswordHash, RolID FROM Usuarios WHERE Email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows === 0) {
-        echo json_encode(['success' => false, 'message' => 'Usuario no encontrado.']);
-        exit;
-    }
-
-    $user = $result->fetch_assoc();
-
-    // Verificar la contraseña
-    if (!password_verify($password, $user['PasswordHash'])) {
-        echo json_encode(['success' => false, 'message' => 'Contraseña incorrecta.']);
-        exit;
-    }
-
-    // Validar el rol del usuario (ejemplo: solo repartidores con RolID = 2)
-    if ($user['RolID'] != 2) {
-        echo json_encode(['success' => false, 'message' => 'Acceso denegado para este usuario.']);
-        exit;
-    }
-
+    
     // Devolver datos exitosos
     echo json_encode([
         'success' => true,
         'message' => 'Inicio de sesión exitoso.',
         'data' => [
-            'id' => $user['ID'],
-            'nombreUsuario' => $user['NombreUsuario'],
-            'email' => $email,
-            'rolID' => $user['RolID']
+            'id' => $row['id'],
+            'nombreUsuario' =>$row['nombreUsuario'],
+            'rolID' => $row['rolID'],
+            'nombreRol' => $row['nombreRol']
         ]
     ]);
 } else {
