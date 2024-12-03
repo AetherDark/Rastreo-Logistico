@@ -15,7 +15,7 @@ try {
         }
 
         // Consulta para obtener el IDUsuario usando el ID almacenado en la cookie
-        $stmtUsuario = $conn->prepare("SELECT IDUsuario FROM Usuarios WHERE ID = ?");
+        $stmtUsuario = $conn->prepare("CALL obtenerIDUsuario(?)");
         $stmtUsuario->bind_param("i", $usuarioID); // Usamos el valor de la cookie para la consulta
         $stmtUsuario->execute();
         $stmtUsuario->bind_result($idUsuario); // Vincular el resultado a la variable $idUsuario
@@ -27,7 +27,7 @@ try {
         $stmtUsuario->close();
 
         // Insertar el nuevo registro en la tabla pedidosRecibir
-        $stmt = $conn->prepare("INSERT INTO pedidosRecibir (ID, UsuarioID) VALUES (?, ?)");
+        $stmt = $conn->prepare("CALL insertarPedidoRecibir(?, ?)");
         $stmt->bind_param("ii", $pedidoID, $idUsuario); // Vincular los parámetros
 
         if (!$stmt->execute()) {

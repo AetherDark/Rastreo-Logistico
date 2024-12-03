@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Consultar el estado de la cuenta
-    $stmt = $conn->prepare("SELECT NombreRol FROM Usuarios WHERE ID = ?");
+    $stmt = $conn->prepare("CALL obtenerNombreRol(?)");
     $stmt->bind_param("i", $userID);
     $stmt->execute();
     $result = $stmt->get_result();

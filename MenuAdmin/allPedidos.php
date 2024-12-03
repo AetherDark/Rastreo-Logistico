@@ -5,8 +5,7 @@ header('Content-Type: application/json'); // Establecer la cabecera de tipo de c
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Consultar todos los pedidos enviados
-    $stmt = $conn->prepare("SELECT Pedidos.ID, Pedidos.Descripcion, Pedidos.DireccionDestino, Pedidos.EstadoActual FROM Pedidos
-    WHERE Pedidos.EstadoActual NOT IN ('Entregado', 'Extraviado', 'Cancelado')");
+    $stmt = $conn->prepare("SELECT ID, Descripcion, DireccionDestino, EstadoActual FROM PedidosEnviados");
     $stmt->execute();
     $result = $stmt->get_result();
 
