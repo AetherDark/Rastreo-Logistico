@@ -22,6 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nombreUsuario = $row['nombreUsuario'];
         $rolID = $row['rolID'];
         $nombreRol = $row['nombreRol'];
+
+        if ($rolID != 2)
+        {
+            echo json_encode(['success' => false, 'message' => 'Acceso denegado para este usuario.']);
+            exit;
+        }
+    } else {
+        echo "Error al ejecutar el procedimiento: " . $stmt->error;
     }
 
     
