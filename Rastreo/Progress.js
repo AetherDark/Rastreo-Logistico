@@ -71,5 +71,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })
     .catch(error => console.error('Error al obtener el estado del pedido:', error));
-    alert("No se ha encontrado ningún pedido con el ID proporcionado.");
 });
