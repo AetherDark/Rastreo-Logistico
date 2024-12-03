@@ -27,16 +27,19 @@ async function checkAuth() {
 
         if (data.status && data.status !== "Usuario") {
             window.location.href = "../InicioDeSesionORegistro/Sesion.html?Auto=1";
+            alert("Error al verificar las credenciales. Por favor, intente de nuevo.");
         } else if (data.status && data.status === "Usuario") {
             console.log("Rol Correcto.");
         } else {
             console.error("Error al verificar el estado de la cuenta:", data.message);
             window.location.href = "../InicioDeSesionORegistro/Sesion.html?ErrorAuto=1";
+            alert("Error al verificar la cuenta. Por favor, intente de nuevo.");
         }            
     } catch (error) {
         console.error("Error en la verificación de la cuenta:", error);
         // Redirigir al login en caso de error en la comunicación
         window.location.href = "../InicioDeSesionORegistro/Sesion.html";
+        alert("Error al verificar el estado de la cuenta. Por favor, intente de nuevo.");
     }
 }
 

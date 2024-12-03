@@ -32,7 +32,7 @@ fetch('MostrarEnviados.php', { method: 'POST' })  // Realizar una solicitud POST
             contenedor.appendChild(row);
         });
     } else {
-        console.log("No hay usuarios para mostrar.");
+        console.log("No hay pedidos para mostrar.");
         // Si no hay usuarios, mostrar un mensaje en la tabla
         const row = document.createElement('tr');
         const cell = document.createElement('td');

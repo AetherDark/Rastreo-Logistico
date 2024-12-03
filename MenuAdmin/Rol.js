@@ -36,7 +36,7 @@ async function checkAuth() {
     } catch (error) {
         console.error("Error en la verificación de la cuenta:", error);
         // Redirigir al login en caso de error en la comunicación
-        window.location.href = "../InicioDeSesionORegistro/Sesion.html";
+        window.location.href = "../InicioDeSesionORegistro/Sesion.html?ErrorAuto=1";
     }
 }
 

@@ -55,12 +55,12 @@ fetch('MostrarRecibidos.php', { method: 'POST' })  // Realizar una solicitud POS
             contenedor.appendChild(row);
         });
     } else {
-        console.log("No hay usuarios para mostrar.");
+        console.log("No hay pedidos para mostrar.");
         // Si no hay usuarios, mostrar un mensaje en la tabla
         const row = document.createElement('tr');
         const cell = document.createElement('td');
         cell.colSpan = 4;
-        cell.textContent = "No has realizado ningun envio.";
+        cell.textContent = "No tienes pedidos por recibir.";
         row.appendChild(cell);
         contenedor.appendChild(row);
     }

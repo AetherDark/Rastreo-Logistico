@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="EstilosComunes.css">
 </head>
 <body>
+    
     <header class="custom-navbar text-white p-3">
         <h1>Lista de Envíos Asignados</h1>
         <!-- Burbuja de saludo flotante -->
@@ -31,22 +32,23 @@
             </tbody>
         </table>
 
-        <!-- Contenedor alineado para selección y botones -->
-        <div class="aligned-actions">
-            <div>
-                <label for="estado">Cambiar Estado de pedido</label>
-                <select class="form-control" id="estado" name="estado">
-                    <option value="">Seleccione Estado</option>
-                    <option value="En tránsito">En tránsito</option>
-                    <option value="Entregado">Entregado</option>
-                </select>
-            </div>
+        <!-- Campo para cambiar el estado de cuenta del usuario -->
+        <div class="mb-4">
+            <label for="estado">Cambiar Estado de pedido</label>
+            <select class="form-control w-100" id="estado" name="estado">
+                <option value="">Seleccione Estado</option>
+                <option value="En tránsito">En tránsito</option>
+                <option value="Entregado">Entregado</option>
+            </select>
+        </div>
 
-            <!-- Botones alineados -->
+        <!-- Botones alineados horizontalmente con espacio entre ellos -->
+        <div style="display: flex; justify-content: space-between; gap: 15px;" class="mt-4">
             <button class="btn btn-primary" id="cambiarEstado" disabled>Cambiar Estado</button>
-            <button class="btn btn-primary" id="extraviado" disabled>Extravío</button>
+            <button class="btn btn-primary" id="extraviado" disabled>Extravio</button>
             <button class="btn btn-primary" onclick="window.location.href='MenuRepartidor.html'">Regresar</button>
         </div>
+
     </main>
     
     <!-- Scripts -->
@@ -55,5 +57,7 @@
     <script src="userNameRepartidor.js"></script>
     <script src="../InicioDeSesionORegistro/Burbuja.js"></script>
     <script src="pedidosAsignados.js"></script>
+    <script src="RolRepartidor.js"></script>
+    
 </body>
 </html>
