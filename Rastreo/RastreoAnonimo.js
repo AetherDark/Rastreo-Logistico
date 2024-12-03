@@ -36,9 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     progressPercentage = 100;
                     activeStepIndex = 3;
                     break;
+                    case 'Cancelado':
+                    case 'Extraviado':
+                        // Cambiar el color de la barra a rojo
+                        progressBar.style.backgroundColor = 'red';
+                        progressBar.style.width = '100%';
+                        progressBar.setAttribute('aria-valuenow', 100);
+            
+                        // Mostrar alerta al usuario
+                        alert(`Su paquete fue ${estadoActual.toLowerCase()}. Por favor, contacte a soporte.`);
+                        return; // No continuar actualizando los pasos
                 default:
-                    progressPercentage = 0;
-                    activeStepIndex = 0;
+                    progressPercentage = 25;
+                    activeStepIndex = 25;
                     break;
             }
 
@@ -58,8 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
         .catch(error => console.error('Error al obtener el estado del pedido:', error));
+        alert('Se ha encontrado un código de rastreo en la cookie.');
     } else {
-        alert('No se ha encontrado un código de rastreo en la cookie.');
+        alert('No se ha encontrado ningun pedido con ese codigo.');
     }
 });
 

@@ -1,6 +1,4 @@
 <?php
-// RegistrarUsuario.php
-
 // Incluir la conexión a la base de datos
 include '../BaseDeDatos/DataBase.php';
 
@@ -37,19 +35,19 @@ try {
         }
 
         // Redirigir o mostrar mensaje en caso de éxito
-        header("Location: ../MenuUsuario/Rastrear.html?Enviado=1");
+        header("Location: ../MenuUsuario/Rastrear.html?Rastreo=1");
     } else {
         throw new Exception("Solicitud incorrecta.");
     }
 } catch (mysqli_sql_exception $e) {
     // Manejo de errores específicos de MySQL
     error_log("Error SQL: " . $e->getMessage());
-    header("Location: ../MenuUsuario/Rastrear.html?NoEnviado=1");
+    header("Location: ../MenuUsuario/Rastrear.html?ErrorRastreo=1");
 } catch (Exception $e) {
     // Manejo de errores generales
     error_log("Error: " . $e->getMessage());
     echo json_encode(["success" => false, "message" => $e->getMessage()]);
-    header("Location: ../MenuUsuario/Rastrear.html?NoEnviado=1");
+    header("Location: ../MenuUsuario/Rastrear.html?ErrorRastreo=1");
 } finally {
     // Cierra la conexión si está abierta
     if (isset($stmt)) $stmt->close();
